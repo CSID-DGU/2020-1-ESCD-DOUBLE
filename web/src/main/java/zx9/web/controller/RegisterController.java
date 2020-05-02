@@ -1,5 +1,7 @@
 package zx9.web.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -8,7 +10,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import zx9.web.dao.BankDao;
+import zx9.web.dao.BlistDao;
+import zx9.web.dao.BlmsgDao;
 import zx9.web.dao.UserDao;
+import zx9.web.vo.BankVO;
+import zx9.web.vo.BlistVO;
+import zx9.web.vo.BlmsgVO;
 import zx9.web.vo.UserVO;
 
 @Controller
@@ -18,6 +26,11 @@ public class RegisterController {
 	
 	@Autowired
 	UserDao udao;
+
+	@Autowired
+	BlmsgDao blmdao;
+	@Autowired
+	BankDao bdao;
 	
 	@RequestMapping("/register")
 	public String register() {
@@ -73,7 +86,7 @@ public class RegisterController {
 	}
 
 	@RequestMapping("/mypage")
-	public String mypage(HttpServletRequest request,Model m) {
+	public String mypage(HttpServletRequest request,BankVO bvo,BlmsgVO blm,Model m) {
 		HttpSession session=request.getSession();
 		m.addAttribute("Sid", session.getAttribute("Sid"));
 		m.addAttribute("Sgrade", session.getAttribute("Sgrade"));
@@ -81,6 +94,58 @@ public class RegisterController {
 		m.addAttribute("Smajor", session.getAttribute("Smajor"));
 		m.addAttribute("Sname", session.getAttribute("Sname"));
 		m.addAttribute("Snum", session.getAttribute("Snum"));
+		if(Integer.parseInt(session.getAttribute("Siscouncil").toString())>1) {
+
+
+			int page=1;// 현재 쪽 번호
+			int limit=10;//한 페이지에 보여지는 목록 개수
+			
+			if(request.getParameter("page")!=null) {
+				//전달된 page가 존재한다면
+				page=Integer.parseInt(request.getParameter("page"));// 내가봤을때는 좀더 효율적으로 바꿀 수 있음
+				System.out.println("list 받은 값 : "+page);
+				
+			}
+			blm.setStartrow((page-1)*10+1);
+			blm.setEndrow(blm.getStartrow()+limit-1);
+
+			String Bid=bdao.select_bank(session.getAttribute("Smajor").toString()).getBid();
+			blm.setBid(Bid);
+			int totalCount=this.blmdao.getCount(Bid);// 총 게시물 개수
+			
+			
+			System.out.println("못가져오나 계좌?mypage"+Bid);
+			
+			List<BlmsgVO> BL=blmdao.select_list(blm);
+
+			int maxpage=(int)((double)totalCount/limit+0.95);
+			
+			//현재 페이지에 보여질 시작 페이지                               page=5라면  1.4 -1  0.4*10+1=5
+			int startpage=(((int)((double)page/10+0.9))-1)*10+1;      
+			int endpage=maxpage;
+			if(endpage>startpage+10-1) {
+				endpage=startpage+10-1;
+			}
+			System.out.println("total: "+ totalCount);
+			System.out.println("start : "+ startpage);
+			System.out.println("end: "+endpage);
+			System.out.println("max : "+maxpage);
+			System.out.println("p : "+page);
+			m.addAttribute("totalCount",totalCount);
+			m.addAttribute("startpage",startpage);
+			m.addAttribute("endpage",endpage);
+			m.addAttribute("maxpage", maxpage);
+			m.addAttribute("page", page);
+			
+			m.addAttribute("bl", BL);
+			
+			System.out.println("blmsg: "+BL.toString());
+			return "/register/mypage";
+			
+			
+			
+			
+		}
 		
 		
 		return "/register/mypage";

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import zx9.web.dao.BankDao;
 import zx9.web.dao.BlistDao;
+import zx9.web.dao.BlmsgDao;
 import zx9.web.vo.BankVO;
 import zx9.web.vo.BlistVO;
 
@@ -22,6 +23,10 @@ public class BankController {
 	BlistDao bldao;
 	@Autowired
 	BankDao bdao;
+	
+	@Autowired
+	BlmsgDao blmdao;
+	
 	@RequestMapping("/purchase")
 	String purchase() {
 		return "/bank/purchase";
@@ -33,11 +38,28 @@ public class BankController {
 		BankVO newbv=bdao.select_bank(session.getAttribute("Smajor").toString());
 		String msg;
 		if(newbv.getBpw().equals(bv.getBpw())) {
-		msg="등록 되었습니다.";
+
+			blv.setBid(newbv.getBid());
+			
+			if(Integer.parseInt(session.getAttribute("Siscouncil").toString())>1) {
+		
+		if(blv.getBuser()==null) {
+			blv.setBuser(session.getAttribute("Sname").toString());
+		}
 			newbv.setBrest(newbv.getBrest()-blv.getBinout());
 		bdao.update_rest(newbv);
-		blv.setBuser(session.getAttribute("Sname").toString());
 		bldao.update_rest(blv,newbv);
+		blmdao.delete_list(blv,newbv);
+		msg="구매 내역을 등록했습니다.";
+			
+			}
+			else {
+				blv.setBuser(session.getAttribute("Sname").toString());
+				// 승인 메시지를 총무에게 보내기
+				msg="총무에게 구매 요청을 보냈습니다.";
+				System.out.println(msg);
+				bldao.sendmsg(blv);
+			}
 		}else {
 			msg="비밀번호를 확인하세요";
 			m.addAttribute("msg", msg);

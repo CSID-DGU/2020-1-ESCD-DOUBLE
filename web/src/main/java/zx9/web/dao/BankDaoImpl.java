@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import zx9.web.vo.BankVO;
+import zx9.web.vo.BlistVO;
 
 @Repository
 public class BankDaoImpl implements BankDao {
@@ -28,5 +29,7 @@ public class BankDaoImpl implements BankDao {
 		sqlSession.update("update_Brest",newbv);
 		
 	}
+
+
 
 }
