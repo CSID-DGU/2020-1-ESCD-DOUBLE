@@ -1,0 +1,30 @@
+package zx9.web.controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import zx9.web.dao.BankDao;
+import zx9.web.dao.BlistDao;
+import zx9.web.vo.BankVO;
+import zx9.web.vo.BlistVO;
+
+@Controller
+public class BankController {
+
+	@Autowired
+	BlistDao bldao;
+	@Autowired
+	BankDao bdao;
+	@RequestMapping("/purchase")
+	String purchase(BlistVO blv,BankVO bv,HttpServletRequest request){
+		HttpSession session=request.getSession();
+
+		blv.setBuser(session.getAttribute("Sname").toString());
+		bldao.update_rest(blv);
+		return "/bank/purchase";
+	}
+}

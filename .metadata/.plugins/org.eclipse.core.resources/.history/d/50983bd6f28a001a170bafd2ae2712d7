@@ -1,0 +1,10 @@
+package zx9.web.dao;
+
+import zx9.web.vo.BankVO;
+import zx9.web.vo.BlistVO;
+
+public interface BlistDao {
+
+	void update_rest(BlistVO blv, BankVO bv);
+
+}

@@ -1,0 +1,9 @@
+select * from users;
+create table users (
+stuid varchar2(20) primary key, 
+name varchar2(20), 
+pw varchar2(20), 
+num varchar2(20), 
+grade number(2),
+major varchar2(20),
+iscouncil number(2) default 0);

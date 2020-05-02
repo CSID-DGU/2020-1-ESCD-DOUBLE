@@ -1,0 +1,32 @@
+package zx9.web.dao;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import zx9.web.vo.UserVO;
+@Repository
+public class UserDaoImpl implements UserDao {
+
+	
+	@Autowired
+	private SqlSession sqlSession;// 자동 의존성 주입 => mybatis쿼리문 수행객체
+
+	@Override
+	public void register(UserVO a) {
+	sqlSession.insert("register", a);
+	
+	}
+
+	@Override
+	public String login(UserVO a) {
+		String pw=sqlSession.selectOne("selpw", a);
+		if(pw.equals(a.getSpw())) {
+			
+		}else {
+			
+		}
+		
+	}
+
+}

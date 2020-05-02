@@ -1,0 +1,56 @@
+--�븳湲� 二쇱꽍臾�
+--tbl_member�뀒�씠釉� �깮�꽦
+create table tbl_member(
+userid varchar2(50) primary key,
+userpw varchar2(50) not null,
+username varchar2(50) not null,
+email varchar2(100),
+regdate date,--�벑濡앸궇吏�
+updatedate date--�닔�젙�궇吏�
+);
+select * from tbl_member;
+--�삤�씪�겢 �궇吏� �븿�닔 �솗�씤 , dual �뀒�씠釉붿� �삤�씪�겢 �꽕移섏떆 �꽕移섎릺�뒗 �엫�떆�뀒�씠釉붾줈 �삤�씪�겢 �븿�닔�굹 �뿰�궛 寃⑤줈媛�媛� �솗�씤 �슜�룄
+
+	insert into tbl_member (userid,userpw,username,email,regdate,updatedate)
+	values('a','q','q','con',sysdate,sysdate);
+
+
+select sysdate from dual;
+/*
+ * primary key : 以묐났 遺덇�
+ * not null : 以묐났 �뿀�슜
+ * date: �궇吏� ���엯
+ * 
+ * */
+
+
+--tbl_board 寃뚯떆�뙋 �뀒�씠釉� �깮�꽦
+create table tbl_board(
+	bno number(38) primary key -- number38�� �삤�씪�겢 �젙�닔 �닽�옄 ���엯�쑝濡� 理쒕� 38�옄 源뚯� ���옣 媛��뒫
+	,writer varchar2(100) not null -- �옉�꽦�옄
+	,title varchar2(200) not null--寃뚯떆�뙋 �젣紐�
+	,content varchar2(4000)--�궡�슜 
+	,viewcnt number(38) default 0-- 議고쉶�닔 , 而щ읆�뿉 �뜲�씠�꽣 ���옣�븯吏� �븡�쑝硫� 0�씠 ���옣�맖
+	,regdate date --�벑濡� �궇吏�
+	);
+	select * from tbl_board order by bno;
+	
+	
+	insert into tbl_board (bno,writer,title,content,regdate)
+	values(bno_seq.nextval,'q','q','con',sysdate);
+	
+	delete from tbl_board;
+	/*
+	 * �떆���뒪 : 踰덊샇 諛쒖깮湲�  : 寃뚯떆�뙋 寃뚯떆臾� 踰덊샇�슜�룄
+	 * �쁽�옱 �씠�썑 踰덊샇媛믩쭔 諛쒖깮 - 以묐났 踰덊샇 x , 
+	 * 
+	 */
+	create sequence bno_seq 
+	start with 1 --1遺��꽣 �떆�옉�븯�옄
+	increment by 1
+	nocache; --�엫�떆 硫붾え由щ�� �궗�슜�븯吏� �븡寃좊떎
+	--�떆���뒪 �씠由�.nextval濡� �떎�쓬 �떆���뒪 踰덊샇 �솗�씤
+	select bno_seq.nextval from dual;
+	
+	
+	

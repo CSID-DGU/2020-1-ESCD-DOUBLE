@@ -1,0 +1,130 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/customize.css">
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+<%@taglib prefix= "c" uri= "http://java.sun.com/jsp/jstl/core" %>
+
+
+<style type="text/css">
+
+.jumbotron{
+text-shadow:black 0.2em 0.2em 0.2em;
+color:white;
+background-image:url('images/apple.png');
+background-size:cover;
+}
+
+</style>
+<%@include file="header.jsp"%>
+<div class="container">
+	<div class="jumbotron" style='background-image:url("resources/images/apple.png")'>
+	<c:if test="${Siscouncil=='1' }">
+	
+	<table>
+<tr><td>${bank.Bname} </td><td>${bank.Brest}</td><td>gi</td></tr>
+	</table>
+	
+	
+	
+	
+	</c:if>
+	<c:if test="${Siscouncil=='0' }">
+		<h1 class="text-center">aaa</h1>
+		<p class="text-center">bbb</p>
+		<p class="text-center"><a class="btn btn-primary bpt-lg" href="#" role="button">a </a></p>
+		</c:if>
+		
+		
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<h4>d</h4>
+			<p>dddd</p>
+			<p><a class="btn btn-default" data-target="#modaltest" data-toggle="modal">ssss</a></p>
+		</div><!-- modal 이용할때 data-target은 아이디가 들어온것 임의로 지정가능 -->
+		<div class="col-md-4">
+			<h4>ddd</h4>
+			<p>ddd</p>
+			<p><a class="btn btn-default" href="instructor.jsp">ddd</a></p>
+		</div>
+		 	<div class="col-md-4">
+			<h4>a</h4>
+			<p>b</p>
+			<p><a class="btn btn-default" href="lecture.jsp">ddd</a></p>
+		</div>
+	
+	</div>
+	<hr>
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title"><span class="glyphicon glyphicon-pencil"></span>
+			&nbsp;&nbsp;c</h3>	
+		</div>
+		<div class="panel-body">
+			<div class="media"><!-- 사진이나 동영상을 담는 클래스 -->
+				<div class="media-left">
+					<a href="#"><img class="media-object" src="resources/images/apple.png" alt="c"></a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading"> <a href="lecture.jsp?lectureName=C">d&nbsp;<span class="badge">New</span></a></h4>
+				ss
+				</div>
+			 </div><hr>
+			 <div class="media">
+				<div class="media-left">
+					<a href="#"><img class="media-object" src="resources/images/apple.png" alt="j"></a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading"> <a href="lecture.jsp?lectureName=Java">fe&nbsp;<span class="badge">New</span></a></h4>
+			dd
+				</div>
+			 </div><hr>
+			 <div class="media">
+				<div class="media-left">
+					<a href="#"><img class="media-object" src="resources/images/apple.png" alt="a"></a>
+				</div>
+				<div class="media-body">
+					<h4 class="media-heading"> <a href="lecture.jsp?lectureName=Android">안드로이드&nbsp;<span class="badge">New</span></a></h4>
+				sf
+				</div>
+			 </div>
+		</div>
+	
+	</div>
+		
+	
+</div>
+
+<div class="row">
+	<div class="modal" id="modaltest" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+				fes
+				<button class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body" style="text-align:center;">
+				dfe<br>
+				sefd<br><br>
+				<img src="resources/images/apple.png" id="imagepreview" style="width: 256px;height:256px;">
+				
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<%@include file="footer.jsp"%>
+
+</body>
+</html>

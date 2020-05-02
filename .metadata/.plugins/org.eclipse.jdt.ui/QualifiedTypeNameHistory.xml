@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.security.Provider"/>
+<fullyQualifiedTypeName name="java.security.Security"/>
+<fullyQualifiedTypeName name="org.jasypt.encryption.pbe.PooledPBEStringEncryptor"/>
+<fullyQualifiedTypeName name="zx9.web.dao.UserDao"/>
+<fullyQualifiedTypeName name="zx9.web.vo.UserVO"/>
+<fullyQualifiedTypeName name="zx9.web.dao.BankDao"/>
+<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+</qualifiedTypeNameHistroy>
