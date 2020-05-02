@@ -43,5 +43,13 @@ public class BlistDaoImpl implements BlistDao {
 		
 		return sqlSession.selectOne("getlistC",bid);
 	}
+	@Override
+	public void sendmsg(BlistVO blv) {
+		// TODO Auto-generated method stub
+		sqlSession.insert("sendmsg",blv);
+		
+		
+		
+	}
 
 }

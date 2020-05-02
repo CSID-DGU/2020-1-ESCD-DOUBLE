@@ -33,7 +33,7 @@ background-size:cover;
 	<center><div><h2>로그인 이후 화면이 보입니다.</h2></div><center></c:if>
 	<c:if test="${not empty Sid }">
 <h1 class="text-center">${bank.getBname() }</h1>
-<p class="text-center">${bank.getBrest() }</p>	<c:if test="${Siscouncil=='1' }">
+<p class="text-center">${bank.getBrest() }</p>	<c:if test="${Siscouncil>='1' }">
 <center><button onclick="location='/web/purchase'">구매 내역 등록하기</button></center>
 	
 	

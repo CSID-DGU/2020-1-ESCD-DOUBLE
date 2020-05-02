@@ -13,10 +13,15 @@ select * from bank;
 create table bank(Bid varchar2(30), Bname varchar2(20),Bpw varchar2(100),Brest number(20));
 create table Blist(Bid varchar2(30),Bdate date,Brest number(20),Binout number(20),Buser varchar2(20));
 
-create sequence Bseq
+create sequence Bseq_p
 start with 1
 increment by 1
 nocache;--임시메모리 사용 안함@!
 drop sequence Bseq;
 
-select Bseq.nextval from dual;
+select Bseq_p.nextval from dual;
+
+create table Blist_per(Bid varchar2(30),Bdate date,Brest number(20),Binout number(20),Buser varchar2(20));
+alter table Blist_per add (Bmemo varchar2(30), Bsequence number(4));
+
+

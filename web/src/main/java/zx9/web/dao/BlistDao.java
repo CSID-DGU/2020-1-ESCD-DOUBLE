@@ -13,4 +13,9 @@ public interface BlistDao {
 
 	int getCount(String bid);
 
+	public void sendmsg(BlistVO blv);
+
+		
+		
+	
 }
