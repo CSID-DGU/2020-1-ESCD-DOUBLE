@@ -30,21 +30,26 @@ background-size:cover;
 	<div class="jumbotron" style='background-image:url("resources/images/apple.png")'>
 
 	<c:if test="${empty Sid }">
-	<center><div><h2>로그인 이후 화면이 보입니다.</h2></div><center></c:if>
+	<center><div><h2>로그인 이후 화면이 보입니다.</h2></div><center>
+	</c:if>
+	
 	<c:if test="${not empty Sid }">
-<h1 class="text-center">${bank.getBname() }</h1>
-<p class="text-center">${bank.getBrest() }</p>	<c:if test="${Siscouncil>='1' }">
-<center><button onclick="location='/web/purchase'">구매 내역 등록하기</button></center>
-	
-	
-	
+
+	<c:if test="${empty bank }">
+	<p class="text-center">조회 할 수 있는 계좌가 없습니다. 소속 과 학생회에 문의 하세요</p>
+	</c:if>
+	<c:if test="${not empty bank }">
+	<h1 class="text-center">${bank.getBname() }</h1>
+	<p class="text-center">${bank.getBrest() }</p>	
+	<c:if test="${Siscouncil>='1' }">
+	<center><button onclick="location='/web/purchase'">구매 내역 등록하기</button></center>
 	
 	</c:if>
-	<c:if test="${Siscouncil=='0'|| empty Siscouncil }">
-		</c:if>
-
 	<center><button onclick="location='/web/blistall'">회비 입출 내역 보기</button></center>
-		</c:if>
+	</c:if>
+
+	
+	</c:if>
 	</div>
 	
 
