@@ -15,6 +15,10 @@ public interface BlistDao {
 
 	public void sendmsg(BlistVO blv);
 
+	void fileio(BlistVO blv);
+
+	List<String> selectallfile();
+
 		
 		
 	

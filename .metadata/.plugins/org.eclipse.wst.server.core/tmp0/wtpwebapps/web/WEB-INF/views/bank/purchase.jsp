@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="resources/css/customize.css">
 </head>
 <body>
-
+<style>
+#unvisfile { visibility: hidden; }
+</style>
 <%@include file="../template/header.jsp"%>
 
 
@@ -23,7 +25,8 @@
 			    	<h3 class="panel-title">input</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form accept-charset="UTF-8" role="form" action="purchase_ok" method="post">
+							    	
+				    <form name="uploadForm" method="post" role="form" action="purchase_ok" enctype="multipart/form-data">		
                     <fieldset>
 			    	  	<div class="form-group">
 <input class="form-control" type="text" name="Binout" placeholder="사용 금액">
@@ -34,7 +37,8 @@
 			    		<div class="form-group">
 <input class="form-control" type="text" name="Bmemo" placeholder="내역">
 			    		</div>
-
+			    		<input type="hidden">
+    <input type="file" id="unvisfile" name="imgFile"></input>
 <input class="btn btn-lg btn-success btn-block" type="submit" value="내역 입력 완료">
 			    	</fieldset>
 			      	</form>

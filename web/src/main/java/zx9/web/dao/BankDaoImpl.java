@@ -1,5 +1,7 @@
 package zx9.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,7 +31,6 @@ public class BankDaoImpl implements BankDao {
 		sqlSession.update("update_Brest",newbv);
 		
 	}
-
 
 
 }

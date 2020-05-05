@@ -43,21 +43,29 @@
   				<td colspan="5" align="right"> 총 내역 목록 : <b>${totalCount }</b>개
   			</tr>
 			<tr>
-			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th>
+			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>파일</th>
 			</tr>
 			</thead>
 			<tbody>
 	  <c:if test="${!empty bl }">
 
    <c:forEach var= "list" items="${bl }">
-   	  <form action="purchase_ok" method="post">
+ 
+    <form name="uploadForm" method="post" action="purchase_ok" enctype="multipart/form-data">
    <tr>
     <th>${list.getBdate() }</th><input type="hidden" value="${list.getBdate()}" name="Bdate">
     <th>${list.getBrest() }</th><input type="hidden" value="${list.getBrest()}" name="Brest">
     <th>${list.getBuser() }</th><input type="hidden" value="${list.getBuser()}" name="Buser">
     <th>${list.getBinout() }</th><input type="hidden" value="${list.getBinout()}" name="Binout">
     <th>${list.getBmemo() }</th><input type="hidden" value="${list.getBmemo()}" name="Bmemo">
-    <th><input type="password" name="Bpw"></th><th><input type="submit" value="승인"></th><th><button onclick="location=''">기각</button></th>
+    <th>${list.getFname() }</th>
+    <th>
+    <input type="file" name="imgFile">
+
+
+  </th>
+    <th><input type="password" name="Bpw"></th>
+    <th><input type="submit" value="승인"></th><th><button onclick="location=''">기각</button></th>
   </tr>  </form></c:forEach>
 </c:if>
   
