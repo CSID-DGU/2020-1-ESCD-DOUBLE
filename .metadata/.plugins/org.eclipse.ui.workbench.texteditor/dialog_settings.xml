@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="multi"/>
 			<item value="로그인"/>
 		</list>
 		<list key="replacehistory">

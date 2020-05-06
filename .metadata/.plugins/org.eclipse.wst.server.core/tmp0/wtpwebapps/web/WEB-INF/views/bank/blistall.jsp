@@ -60,18 +60,22 @@ vertical-align:-0.4em;
   				<td colspan="5" align="right"> 총 내역 목록 : <b>${totalCount }</b>개
   			</tr>
 			<tr>
-			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th>
+			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>파일</th>
 			</tr>
 			</thead>
 			<tbody>
 	  <c:if test="${!empty bl }">
    <c:forEach var= "list" items="${bl }">
    <tr>
-    <th>${list.getBdate() }</th>
-    <th>${list.getBrest() }</th>
-    <th>${list.getBuser() }</th>
-    <th>${list.getBinout() }</th>
-    <th>${list.getBmemo() }</th>
+    <th>${list.getBdate() }</th><input type="hidden" name="Bdate">
+    <th>${list.getBrest() }</th><input type="hidden" name="Brest">
+    <th>${list.getBuser() }</th><input type="hidden" name="Buser">
+    <th>${list.getBinout() }</th><input type="hidden" name="Binout">
+    <th>${list.getBmemo() }</th><input type="hidden" name="Bmemo">
+    <th><a href="/web/downloadFile?fname=${list.getFname() }  ">${list.getFname() }  </a><br>
+    
+
+    </th>
   </tr></c:forEach></c:if>
   
     <c:if test="${empty bl }">

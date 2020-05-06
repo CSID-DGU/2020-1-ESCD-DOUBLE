@@ -1,14 +1,26 @@
 package zx9.web.controller;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import zx9.web.dao.BankDao;
 import zx9.web.dao.BlistDao;
@@ -32,25 +44,58 @@ public class BankController {
 		return "/bank/purchase";
 	}
 	@RequestMapping("/purchase_ok")
-	String purchase_ok(BlistVO blv,BankVO bv,HttpServletRequest request,Model m){
+	String purchase_ok(BlistVO blv,BankVO bv,HttpServletRequest request,Model m,
+			RedirectAttributes rttr, @RequestParam("imgFile") MultipartFile imgFile , Model model){
 		HttpSession session=request.getSession();
-		
 		BankVO newbv=bdao.select_bank(session.getAttribute("Smajor").toString());
 		String msg;
+	
 		if(newbv.getBpw().equals(bv.getBpw())) {
-
 			blv.setBid(newbv.getBid());
 			
 			if(Integer.parseInt(session.getAttribute("Siscouncil").toString())>1) {
-		
+				
 		if(blv.getBuser()==null) {
 			blv.setBuser(session.getAttribute("Sname").toString());
 		}
 			newbv.setBrest(newbv.getBrest()-blv.getBinout());
 		bdao.update_rest(newbv);
 		bldao.update_rest(blv,newbv);
+if(imgFile!=null) {
+			
+			String savePath="C:\\Users\\bohee\\source\\dospace_web\\web\\src\\main\\webapp\\resources\\fileupdown";
+			System.out.println("uploadFile");
+			String originalFilename = imgFile.getOriginalFilename(); // fileName.jpg
+		    String onlyFileName = originalFilename.substring(0, originalFilename.indexOf(".")); // fileName
+		    String extension = originalFilename.substring(originalFilename.indexOf(".")); // .jpg
+		 
+		    String rename = onlyFileName + extension; // fileName_20150721-14-07-50.jpg
+		    String fullPath = savePath + "\\" + rename;
+		    if (!imgFile.isEmpty()) {
+		        try {
+		            byte[] bytes = imgFile.getBytes();
+		            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+		            stream.write(bytes);
+		            stream.close();
+		          //  bldao.fileio(rename);
+		            blv.setFname(rename);
+		            bldao.fileio(blv);
+		            
+		            model.addAttribute("resultMsg", "파일을 업로드 성공!");
+		            System.out.println("업로드 성공");
+		        } catch (Exception e) {
+		            model.addAttribute("resultMsg", "파일을 업로드하는 데에 실패했습니다.");
+		            System.out.println("업로드 실패");
+		        }
+		    } else {
+		        model.addAttribute("resultMsg", "업로드할 파일을 선택해주시기 바랍니다.");
+		    }
+		
+		}
+		//file up
 		blmdao.delete_list(blv,newbv);
 		msg="구매 내역을 등록했습니다.";
+		
 			
 			}
 			else {
@@ -117,4 +162,96 @@ public class BankController {
 		
 		return "/bank/blistall";
 	}
+	
+	
+	@RequestMapping("/fileio")
+	public String fileio() {
+		return "/bank/fileio";
+	}
+	
+	// 파일 입출력시 특수기호는 불가, 한글 불가 , 
+		@RequestMapping("/uploadFile")
+		public String uploadFile(RedirectAttributes rttr,HttpServletRequest request, @RequestParam("imgFile") MultipartFile imgFile , Model model) {
+			String savePath="C:\\Users\\bohee\\source\\dospace_web\\web\\src\\main\\webapp\\resources\\fileupdown";
+			System.out.println("uploadFile");
+			String originalFilename = imgFile.getOriginalFilename(); // fileName.jpg
+		    String onlyFileName = originalFilename.substring(0, originalFilename.indexOf(".")); // fileName
+		    String extension = originalFilename.substring(originalFilename.indexOf(".")); // .jpg
+		 
+		    String rename = onlyFileName + extension; // fileName_20150721-14-07-50.jpg
+		    String fullPath = savePath + "\\" + rename;
+		    if (!imgFile.isEmpty()) {
+		        try {
+		            byte[] bytes = imgFile.getBytes();
+		            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+		            stream.write(bytes);
+		            stream.close();
+		           // bldao.fileio(blvo);
+		            
+		            
+		            model.addAttribute("resultMsg", "파일을 업로드 성공!");
+		        } catch (Exception e) {
+		            model.addAttribute("resultMsg", "파일을 업로드하는 데에 실패했습니다.");
+		        }
+		    } else {
+		        model.addAttribute("resultMsg", "업로드할 파일을 선택해주시기 바랍니다.");
+		    }
+			
+			return "redirect:/updown";
+		}
+		
+		
+		@RequestMapping("/downloadFile")
+		public String downloadFile(RedirectAttributes rttr,HttpServletRequest request,HttpServletResponse response,BankVO bvo,String fname) throws UnsupportedEncodingException {
+	String fileName = request.getParameter("filename");
+			
+			// ② 경로 가져오기
+			String saveDir = "C:\\Users\\bohee\\source\\dospace_web\\web\\src\\main\\webapp\\resources\\fileupdown";
+			
+			File file = new File(saveDir + "\\"+fname);
+
+			response.setContentType("application/octet-stream");
+			String filename = new String(fname.getBytes("UTF-8"), "8859_1");
+				
+				response.setHeader("Content-Disposition", "attachment;filename=" + filename);
+				try {
+					BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+
+					
+					try {
+						BufferedOutputStream bos = new BufferedOutputStream(response.getOutputStream());
+						int data;
+						while((data=bis.read()) != -1){
+							bos.write(data);
+							bos.flush();
+						}
+
+						// 8] 스트림 닫기
+						bis.close();
+						bos.close();
+						
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				// 6] 웹브라우저에 연결할 출력 스트림 생성 
+			//	rttr.addFlashAttribute("msg","SUCCESS"); 
+		
+			//return "redirect:/updown";
+			return "/bank/blistall";
+			
+			
+		}
+		@RequestMapping("/updown")
+		public String updown(Model m) {
+			List<String>fname=bldao.selectallfile();
+			m.addAttribute("io", fname);
+
+			return "/bank/updown";
+		}
+		
 }

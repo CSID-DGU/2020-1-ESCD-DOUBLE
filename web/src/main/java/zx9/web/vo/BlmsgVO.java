@@ -9,6 +9,13 @@ private String Bid;
 	private String Buser;
 	private String Bmemo;
 	private int Bsequence;
+	String fname;
+	public String getFname() {
+		return fname;
+	}
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
 	//페이징 
 	private int startrow;// 시작 행 번호
 	private int endrow; // 끝 행 번호

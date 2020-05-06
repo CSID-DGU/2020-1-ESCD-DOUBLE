@@ -9,7 +9,7 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 </update>
 <select id="select_list" parameterType="blist" resultType="blist">
 select * from 
-	(select rowNum rNum,Bid,Bdate,Brest,Binout,Buser,Bmemo
+	(select rowNum rNum,Bid,Bdate,Brest,Binout,Buser,Bmemo,fname
 	from (select * from Blist where Bid=#{Bid} order by Bsequence desc))
 	where rNum &gt;=#{startrow} and rNum &lt;=#{endrow}
 </select>

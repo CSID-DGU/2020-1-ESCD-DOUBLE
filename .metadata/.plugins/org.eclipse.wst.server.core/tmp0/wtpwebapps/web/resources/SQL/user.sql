@@ -19,9 +19,18 @@ increment by 1
 nocache;--임시메모리 사용 안함@!
 drop sequence Bseq;
 
+select * from blist order by bsequence desc;
+
+select * from blist_per;
+
+update blist_per set fname='';
 select Bseq_p.nextval from dual;
 
 create table Blist_per(Bid varchar2(30),Bdate date,Brest number(20),Binout number(20),Buser varchar2(20));
 alter table Blist_per add (Bmemo varchar2(30), Bsequence number(4));
 
+select * from blist_per;
+
+alter table Blist_per add fname varchar2(20);
+update Blist_per set fname='';
 
