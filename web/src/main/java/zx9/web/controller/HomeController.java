@@ -21,6 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.UserDao;
 import zx9.web.vo.BankVO;
@@ -38,6 +39,8 @@ public class HomeController {
 	@Autowired
 	BankDao bdao;
 	
+
+	bouncy_change crt = new bouncy_change();
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -144,6 +147,13 @@ public class HomeController {
 	}
 	@RequestMapping("/a")
 	public String instructor() {
+
+    	System.out.println("HASH 224 : " + crt.CryptoSHA3("1234", 256));//bank
+    	System.out.println("HASH 224 : " + crt.CryptoSHA3("1234", 384));//bank
+    	System.out.println("HASH 224 : " + crt.CryptoSHA3("아빠", 224));//user
+	//	System.out.println("HASH 256 : " + crt.CryptoSHA3("가나다라마바", 256));
+	//	System.out.println("HASH 384 : " + crt.CryptoSHA3("가나다라마바", 384));
+	//	System.out.println("HASH 512 : " + crt.CryptoSHA3("가나다라마바", 512));
 		return "template/a";
 	}
 	@RequestMapping("/b")
@@ -153,6 +163,6 @@ public class HomeController {
 	@RequestMapping("/bc")
 	public void bc(){
 		
-	}
+	} 
 	
 }

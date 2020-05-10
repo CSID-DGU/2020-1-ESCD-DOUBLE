@@ -21,7 +21,15 @@ drop sequence Bseq;
 
 select * from blist order by bsequence desc;
 
+
+
 select * from blist_per;
+
+select * from users;
+update bank set bpw='387a8233c96e1fc0ad5e284353276177af2186e7afa85296f106336e376669f7';
+select * from bank;
+delete from users where sid='staris';
+update users set siscouncil=3 where sid='2015112120';
 
 update blist_per set fname='';
 select Bseq_p.nextval from dual;

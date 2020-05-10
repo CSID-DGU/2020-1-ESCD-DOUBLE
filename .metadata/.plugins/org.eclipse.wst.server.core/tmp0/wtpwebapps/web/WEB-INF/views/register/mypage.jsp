@@ -1,30 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="resources/css/bootstrap.css">
+<link rel="stylesheet" href="resources/css/customize.css">
+<link rel="stylesheet" href="resources/css/template.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+
+<meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body>
-<table>
-<tr>
-	<td>${Sid }</td></tr>
-	<tr>
-	<td>${Sname }</td>
-	</tr><tr><td>${Snum }</td>
-	</tr><tr><td>${Sgrade }</td>
-	</tr><tr><td>${Smajor }</td>
-	</tr><tr><td>${Siscouncil }</td>
-</tr>
 
-</table>
+<body class="body">
 
-<c:if test="${Siscouncil>1}">
+<style>
+
+blockquote{
+background:#f9f9f9;
+border-left:10px solid #cccccc;
+margin: 1.5em 10px;
+padding: 0.5em 10px;
+quotes: "\201C""\201D""\2018""\2019"
+}
+blockquote:before{
+color:#cccccc;
+content:open-quote;
+font-size:3em;
+line-height:0.1em;
+margin-left:0.25em;
+vertical-align:-0.4em;
+}
+blockquote:after{
+color:#cccccc;
+content:close-quote;
+font-size:3em;
+line-height:0.1em;
+margin-left:0.25em;
+vertical-align:-0.4em;
+}
 
 
+</style>
+
+<%@include file="../template/header.jsp"%>
 
 <div class="container">
 	<div class="row">
@@ -33,20 +55,24 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				<span class="glyphicon glyphicon-tags"></span>
-				&nbsp;&nbsp;í•™ìƒ íšŒë¹„ ë‚´ì—­ ì‚¬ìš© ìš”ì²­ ë‚´ì—­
+				&nbsp;&nbsp;ÇĞ»ı È¸ºñ ³»¿ª »ç¿ë ¿äÃ» ³»¿ª
 			</h3>
 		</div>
 	
 		<table class="table">
 			<thead>
+			<tr><td>³» ÇĞ¹ø</td><td>³» ÀÌ¸§</td>	<td>³» ÀüÈ­¹øÈ£</td>	<td>³» ÇĞ³â</td>	<td>³» Àü°ø</td>	<td>³» ±ÇÇÑ</td></tr>
+			<tr>	<td>${Sid }</td><td>${Sname }</td>	<td>${Snum }</td>	<td>${Sgrade }</td>	<td>${Smajor }</td>	<td>${Siscouncil }</td></tr>
+				<tr>±ÇÇÑ¿¡ µû¶ó º¸ÀÌÁö ¾ÊÀ» ¼ö ÀÖ½À´Ï´Ù.</tr>
 			  <tr>
-  				<td colspan="5" align="right"> ì´ ë‚´ì—­ ëª©ë¡ : <b>${totalCount }</b>ê°œ
+  				<td colspan="5" align="right"> ÃÑ ³»¿ª ¸ñ·Ï : <b>${totalCount }</b>°³
   			</tr>
 			<tr>
-			<th>ë‚ ì§œ</th>	<th>ì”ì•¡</th>	<th>ì‚¬ìš©ì</th>	<th>ì‚¬ìš© ê¸ˆì•¡</th><th>ë‚´ì—­</th><th>íŒŒì¼</th>
+			<th>³¯Â¥</th>	<th>ÀÜ¾×</th>	<th>»ç¿ëÀÚ</th>	<th>»ç¿ë ±İ¾×</th><th>³»¿ª</th><th>ÆÄÀÏ</th>
 			</tr>
 			</thead>
 			<tbody>
+		<c:if test="${Siscouncil>1}">	
 	  <c:if test="${!empty bl }">
 
    <c:forEach var= "list" items="${bl }">
@@ -65,26 +91,28 @@
 
   </th>
     <th><input type="password" name="Bpw"></th>
-    <th><input type="submit" value="ìŠ¹ì¸"></th><th><button onclick="location=''">ê¸°ê°</button></th>
+    <th><input type="submit" value="½ÂÀÎ"></th><th><button onclick="location=''">±â°¢</button></th>
   </tr>  </form></c:forEach>
 </c:if>
   
     <c:if test="${empty bl }">
   <tr>
-   <th colspan="5">ê²Œì‹œíŒ ëª©ë¡ì´ ì—†ìŠµë‹ˆë‹¤!</th></tr></c:if>
+   <th colspan="5">°Ô½ÃÆÇ ¸ñ·ÏÀÌ ¾ø½À´Ï´Ù!</th></tr></c:if>
 			</tbody>
+</c:if>
+			
 	<center><tr>
    		<th colspan="5">
    			<c:if test="${page<=1 }">
-   				[ì´ì „]&nbsp;
+   				[ÀÌÀü]&nbsp;
    			</c:if>
    			<c:if test="${page>1 }">
-   				<a href="/web/blistall?page=${page-1 }">[ì´ì „]</a>&nbsp;
+   				<a href="/web/blistall?page=${page-1 }">[ÀÌÀü]</a>&nbsp;
    			</c:if>
    			
-   			<%--í˜„ì¬ìª½ ë²ˆí˜¸ ì¶œë ¥ --%>
+   			<%--ÇöÀçÂÊ ¹øÈ£ Ãâ·Â --%>
    			<c:forEach var="a" begin="${startpage }" end="${endpage }" step="1">
-   				<c:if test="${a==page }"><%--í˜„ì¬ ìª½ë²ˆí˜¸ê°€ ì„ íƒëœ ê²½ìš°ëŠ” ë§í¬ ì—†ì–´ë„ë¨ --%>
+   				<c:if test="${a==page }"><%--ÇöÀç ÂÊ¹øÈ£°¡ ¼±ÅÃµÈ °æ¿ì´Â ¸µÅ© ¾ø¾îµµµÊ --%>
    					 <${a }>
    				</c:if>
    				<c:if test="${a!=page}">
@@ -92,18 +120,18 @@
    					
    				</c:if>
    			</c:forEach>
-   			<c:if test="${page>=endpage }"><!-- maxpage =>endpageë¡œë°”ê¾¸ë©´..? -->
-   			[ë‹¤ìŒ]
+   			<c:if test="${page>=endpage }"><!-- maxpage =>endpage·Î¹Ù²Ù¸é..? -->
+   			[´ÙÀ½]
    			</c:if>
    			<c:if test="${page<endpage }">
-   			<a href="/web/blistall?page=${page+1 }">[ë‹¤ìŒ]</a>
+   			<a href="/web/blistall?page=${page+1 }">[´ÙÀ½]</a>
    			</c:if>
    			
    		</th>
    </tr></center>
 		</table>
 			<div class="panel-footer">
-					<blockquote>ë°˜ê°‘ë„¤</blockquote>
+					<blockquote>¹İ°©³×</blockquote>
 			</div>
 		
 		</div></div>
@@ -114,9 +142,8 @@
 
 
 
-</c:if>
-
-
+<div class="footer">
+<%@include file="../template/footer.jsp"%></div>
 
 </body>
 </html>
