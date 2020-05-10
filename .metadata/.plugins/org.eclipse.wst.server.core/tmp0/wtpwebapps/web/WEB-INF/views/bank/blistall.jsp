@@ -6,6 +6,7 @@
 <head>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" href="resources/css/customize.css">
+<link rel="stylesheet" href="resources/css/template.css">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.js"></script>
 
@@ -40,7 +41,8 @@ vertical-align:-0.4em;
 
 </style>
 </head>
-<body>  
+
+<body class="body">
 
 <%@include file="../template/header.jsp"%>
 <div class="container">
@@ -119,7 +121,7 @@ vertical-align:-0.4em;
 	</div>
 </div>
 
-
-<%@include file="../template/footer.jsp"%>
+<div class="footer">
+<%@include file="../template/footer.jsp"%></div>
 </body>
 </html>

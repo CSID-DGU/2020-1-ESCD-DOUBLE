@@ -8,8 +8,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" href="resources/css/customize.css">
+<link rel="stylesheet" href="resources/css/template.css">
 </head>
-<body>
+<body class="body">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.js"></script>
 
@@ -17,17 +18,23 @@
 
 <style type="text/css">
 
+
 .jumbotron{
 text-shadow:black 0.2em 0.2em 0.2em;
 color:white;
-background-image:url('images/apple.png');
-background-size:cover;
+height:300px;
+background-image:url('resources/images/babyele.JPG');
+background-size:70% 100%;
+background-repeat : no-repeat;
+background-position:center;
+
 }
+
 
 </style>
 <%@include file="header.jsp"%>
 <div class="container">
-	<div class="jumbotron" style='background-image:url("resources/images/apple.png")'>
+	<div class="jumbotron" >
 
 	<c:if test="${empty Sid }">
 	<center><div><h2>로그인 이후 화면이 보입니다.</h2></div><center>
@@ -56,7 +63,8 @@ background-size:cover;
 
 	
 </div>
+<div class="footer">
 <%@include file="footer.jsp"%>
-
+</div>
 </body>
 </html>

@@ -7,13 +7,15 @@
 <head>
 <link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" href="resources/css/customize.css">
+<link rel="stylesheet" href="resources/css/template.css">
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.js"></script>
 
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-<body>
+
+<body class="body">
 
 <style>
 
@@ -140,9 +142,8 @@ vertical-align:-0.4em;
 
 
 
-
-
-<%@include file="../template/footer.jsp"%>
+<div class="footer">
+<%@include file="../template/footer.jsp"%></div>
 
 </body>
 </html>
