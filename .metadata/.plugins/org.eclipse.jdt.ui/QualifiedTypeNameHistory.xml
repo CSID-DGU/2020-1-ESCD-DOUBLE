@@ -11,4 +11,7 @@
 <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="zx9.web.dao.BlmsgDao"/>
 <fullyQualifiedTypeName name="zx9.web.vo.BlmsgVO"/>
+<fullyQualifiedTypeName name="java.security.InvalidKeyException"/>
+<fullyQualifiedTypeName name="javax.crypto.KeyGenerator"/>
+<fullyQualifiedTypeName name="org.bouncycastle.jcajce.provider.digest.Keccak.DigestKeccak"/>
 </qualifiedTypeNameHistroy>

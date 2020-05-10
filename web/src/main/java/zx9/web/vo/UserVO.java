@@ -1,5 +1,7 @@
 package zx9.web.vo;
 
+import pwchange.bouncy_change;
+
 public class UserVO {
 	
 	private String Sname;
@@ -9,7 +11,8 @@ public class UserVO {
 	private String Smajor;   
 	private int Sgrade; 	
 	private int Siscouncil;
-	
+
+	bouncy_change crt = new bouncy_change();
 	public String getSname() {
 		return Sname;
 	}
@@ -26,7 +29,8 @@ public class UserVO {
 		return Spw;
 	}
 	public void setSpw(String spw) {
-		Spw = spw;
+		Spw = crt.CryptoSHA3(spw, 224);
+		//Spw = spw;
 	}
 	public String getSnum() {
 		return Snum;

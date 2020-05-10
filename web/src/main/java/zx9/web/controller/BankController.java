@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.BlistDao;
 import zx9.web.dao.BlmsgDao;
@@ -38,7 +39,8 @@ public class BankController {
 	
 	@Autowired
 	BlmsgDao blmdao;
-	
+
+	bouncy_change crt = new bouncy_change();
 	@RequestMapping("/purchase")
 	String purchase() {
 		return "/bank/purchase";
@@ -57,6 +59,7 @@ public class BankController {
 				
 		if(blv.getBuser()==null) {
 			blv.setBuser(session.getAttribute("Sname").toString());
+			
 		}
 			newbv.setBrest(newbv.getBrest()-blv.getBinout());
 		bdao.update_rest(newbv);

@@ -34,7 +34,7 @@ body{padding-top:20px;}
 			    		    <input class="form-control" placeholder="학번" name="Sid" type="text">
 			    		</div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Password" name="Spw" type="비밀번호">
+			    			<input class="form-control" placeholder="password" name="Spw" type="password">
 			    		</div>
 
 			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">

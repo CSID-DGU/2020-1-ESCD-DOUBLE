@@ -45,7 +45,7 @@ vertical-align:-0.4em;
 </style>
 
 <%@include file="../template/header.jsp"%>
-<c:if test="${Siscouncil>1}">
+
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12">
@@ -61,6 +61,7 @@ vertical-align:-0.4em;
 			<thead>
 			<tr><td>내 학번</td><td>내 이름</td>	<td>내 전화번호</td>	<td>내 학년</td>	<td>내 전공</td>	<td>내 권한</td></tr>
 			<tr>	<td>${Sid }</td><td>${Sname }</td>	<td>${Snum }</td>	<td>${Sgrade }</td>	<td>${Smajor }</td>	<td>${Siscouncil }</td></tr>
+				<tr>권한에 따라 보이지 않을 수 있습니다.</tr>
 			  <tr>
   				<td colspan="5" align="right"> 총 내역 목록 : <b>${totalCount }</b>개
   			</tr>
@@ -69,6 +70,7 @@ vertical-align:-0.4em;
 			</tr>
 			</thead>
 			<tbody>
+		<c:if test="${Siscouncil>1}">	
 	  <c:if test="${!empty bl }">
 
    <c:forEach var= "list" items="${bl }">
@@ -95,6 +97,8 @@ vertical-align:-0.4em;
   <tr>
    <th colspan="5">게시판 목록이 없습니다!</th></tr></c:if>
 			</tbody>
+</c:if>
+			
 	<center><tr>
    		<th colspan="5">
    			<c:if test="${page<=1 }">
@@ -135,8 +139,6 @@ vertical-align:-0.4em;
 
 
 
-
-</c:if>
 
 
 
