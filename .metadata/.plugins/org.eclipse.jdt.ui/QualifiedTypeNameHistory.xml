@@ -14,4 +14,7 @@
 <fullyQualifiedTypeName name="java.security.InvalidKeyException"/>
 <fullyQualifiedTypeName name="javax.crypto.KeyGenerator"/>
 <fullyQualifiedTypeName name="org.bouncycastle.jcajce.provider.digest.Keccak.DigestKeccak"/>
+<fullyQualifiedTypeName name="org.apache.ibatis.javassist.bytecode.analysis.ControlFlow.Block"/>
+<fullyQualifiedTypeName name="pwchange.Blockchain"/>
+<fullyQualifiedTypeName name="pwchange.Transaction"/>
 </qualifiedTypeNameHistroy>

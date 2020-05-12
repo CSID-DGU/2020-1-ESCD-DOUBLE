@@ -13,7 +13,7 @@ public class BlockChainStarter {
 		//Transaction tr=new Transaction("staris","hama",30);
 		//System.out.println(tr.getInfo());
 		
-		//int blockID,String previousBlockHash, int nonce, ArrayList transactionList)
+		
 		Blockchain block=new Blockchain(1,null,0,new ArrayList());
 		block.mine();
 		block.getinfo(); 

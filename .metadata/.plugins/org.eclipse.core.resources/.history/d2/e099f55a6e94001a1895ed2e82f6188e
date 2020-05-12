@@ -59,6 +59,7 @@ public class Blockchain {
 	public void getinfo() {
 		System.out.println("------------------------------------------------");
 		System.out.println("블록 번호 : "+ this.getBlockID());
+
 		System.out.println("이전 블록 해시 : "+ this.getPreviousBlockHash());
 		System.out.println("채굴 변수 값 : "+ this.getNonce());
 		System.out.println("트랜잭션 개수 : "+ transactionList.size()+"개");
