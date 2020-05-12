@@ -10,6 +10,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.javassist.bytecode.analysis.ControlFlow.Block;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jasypt.encryption.pbe.PooledPBEStringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
@@ -22,13 +23,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import pwchange.Blockchain;
-import pwchange.Transaction;
 import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.UserDao;
 import zx9.web.vo.BankVO;
-
 
 /**
  * Handles requests for the application home page.
@@ -165,23 +163,23 @@ public class HomeController {
 		
 		
 		
-		Blockchain block=new Blockchain(1,null,0,new ArrayList());
+		Block block=new Block(1,null,0,new ArrayList());
 		block.mine();
 		block.getinfo(); 
-		Blockchain block2=new Blockchain(2,block.getBlockHash(),0,new ArrayList());
+		Block block2=new Block(2,block.getBlockHash(),0,new ArrayList());
 		block2.addTransaction(new Transaction("staris","hama",1.5));
 		block2.addTransaction(new Transaction("시은","hama",0.7));
 		
 		block2.mine();
 		block2.getinfo();
-		Blockchain block3=new Blockchain(3,block2.getBlockHash(),0,new ArrayList());
+		Block block3=new Block(3,block2.getBlockHash(),0,new ArrayList());
 		block3.addTransaction(new Transaction("가경","시은",8.2));
 		block3.addTransaction(new Transaction("hama","staris",0.4));
 		
 		
 		block3.mine();
 		block3.getinfo();
-		Blockchain block4=new Blockchain(4,block3.getBlockHash(),0,new ArrayList());
+		Block block4=new Block(4,block3.getBlockHash(),0,new ArrayList());
 		block4.addTransaction(new Transaction("시은","staris",0.1));
 		
 		block4.mine();
