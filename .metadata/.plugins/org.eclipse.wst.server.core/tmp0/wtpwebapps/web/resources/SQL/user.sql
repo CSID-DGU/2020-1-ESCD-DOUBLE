@@ -19,6 +19,11 @@ increment by 1
 nocache;--임시메모리 사용 안함@!
 drop sequence Bseq;
 
+alter table blist add prehash varchar2(100);
+alter table blist add thishash varchar2(100);
+
+
+
 select * from blist order by bsequence desc;
 
 

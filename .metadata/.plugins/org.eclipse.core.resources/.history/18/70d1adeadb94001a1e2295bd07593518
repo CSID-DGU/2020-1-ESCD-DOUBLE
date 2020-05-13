@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banklist">
+<update id="update_Blrest">
+	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence) values(#{bid},sysdate
+	,#{Brest},#{Binout},#{Buser},#{Bmemo},Bseq.nextval)
+</update>
+<select id="select_list" parameterType="blist" resultType="blist">
+select * from 
+	(select rowNum rNum,Bid,Bdate,Brest,Binout,Buser,Bmemo,fname
+	from (select * from Blist where Bid=#{Bid} order by Bsequence desc))
+	where rNum &gt;=#{startrow} and rNum &lt;=#{endrow}
+</select>
+<select id="select_list_msg" parameterType="blmsg" resultType="blmsg">
+select * from 
+	(select rowNum rNum,Bid,Bdate,Brest,Binout,Buser,Bmemo
+	from (select * from Blist_per where Bid=#{Bid} order by Bsequence desc))
+	where rNum &gt;=#{startrow} and rNum &lt;=#{endrow}
+
+</select>
+<select id="getlistC" resultType="int">
+	select count(*) from Blist where Bid=#{bid}
+
+</select>
+<select id="getlistCp" resultType="int">
+	select count(*) from Blist_per where Bid=#{bid}
+
+</select>
+<insert id="sendmsg">
+	insert into Blist_per (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence) 
+	values(#{Bid},sysdate,#{Brest},#{Binout},#{Buser},#{Bmemo},Bseq_p.nextval)
+</insert>
+<delete id="delete_list_msg">
+ 	delete from Blist_per where Bid=#{Bid} and Binout=#{Binout} and Bmemo=#{Bmemo} and Buser=#{Buser}
+</delete>
+
+<select id="selectseq">
+	select max(Bsequence) from Blist
+	</select>
+</mapper>

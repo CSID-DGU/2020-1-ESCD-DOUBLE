@@ -17,4 +17,5 @@
 <fullyQualifiedTypeName name="org.apache.ibatis.javassist.bytecode.analysis.ControlFlow.Block"/>
 <fullyQualifiedTypeName name="pwchange.Blockchain"/>
 <fullyQualifiedTypeName name="pwchange.Transaction"/>
+<fullyQualifiedTypeName name="chain.Util"/>
 </qualifiedTypeNameHistroy>
