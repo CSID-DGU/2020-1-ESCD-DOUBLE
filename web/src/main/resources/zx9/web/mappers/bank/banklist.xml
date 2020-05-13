@@ -4,8 +4,8 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="banklist">
 <update id="update_Blrest">
-	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence) values(#{bid},sysdate
-	,#{Brest},#{Binout},#{Buser},#{Bmemo},Bseq.nextval)
+	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash) values(#{bid},sysdate
+	,#{Brest},#{Binout},#{Buser},#{Bmemo},Bseq.nextval,#{prehash},#{thishash})
 </update>
 <select id="select_list" parameterType="blist" resultType="blist">
 select * from 
@@ -35,4 +35,10 @@ select * from
 <delete id="delete_list_msg">
  	delete from Blist_per where Bid=#{Bid} and Binout=#{Binout} and Bmemo=#{Bmemo} and Buser=#{Buser}
 </delete>
+<select id="selectseqall" resultType="blist">
+	select * from blist where bsequence=#{bsequence}
+</select>
+<select id="selectseq" resultType="int">
+	select max(Bsequence) from Blist
+	</select>
 </mapper>

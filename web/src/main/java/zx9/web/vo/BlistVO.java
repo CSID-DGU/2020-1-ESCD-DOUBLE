@@ -1,5 +1,7 @@
 package zx9.web.vo;
 
+import chain.Util;
+
 public class BlistVO {
 	
 private String Bid;
@@ -8,6 +10,21 @@ private String Bid;
 	private int Binout;
 	private String Buser;
 	private String Bmemo;
+	private String prehash;
+	private String thishash;
+	public String getPrehash() {
+		return prehash;
+	}
+	public void setPrehash(String prehash) {
+		
+		this.prehash = Util.getHash(prehash);
+	}
+	public String getThishash() {
+		return thishash;
+	}
+	public void setThishash(String thishash) {
+		this.thishash = Util.getHash(thishash);
+	}
 	private int Bsequence;
 	String fname;
 	public String getFname() {

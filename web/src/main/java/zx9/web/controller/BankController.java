@@ -40,7 +40,7 @@ public class BankController {
 	@Autowired
 	BlmsgDao blmdao;
 
-	bouncy_change crt = new bouncy_change();
+	//bouncy_change crt = new bouncy_change();
 	@RequestMapping("/purchase")
 	String purchase() {
 		return "/bank/purchase";
@@ -206,7 +206,8 @@ if(!imgFile.isEmpty()) {
 		@RequestMapping("/downloadFile")
 		public String downloadFile(RedirectAttributes rttr,HttpServletRequest request,HttpServletResponse response,BankVO bvo,String fname) throws UnsupportedEncodingException {
 	String fileName = request.getParameter("filename");
-			
+			// 파일 이름은 유일해야함
+	
 			// ② 경로 가져오기
 			String saveDir = "C:\\Users\\bohee\\source\\dospace_web\\web\\src\\main\\webapp\\resources\\fileupdown";
 			

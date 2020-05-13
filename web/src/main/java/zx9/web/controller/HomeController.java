@@ -3,6 +3,7 @@ package zx9.web.controller;
 import java.security.Provider;
 import java.security.Security;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -21,10 +22,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import chain.Util;
+import pwchange.Blockchain_original;
+import pwchange.Transaction_original;
 import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.UserDao;
 import zx9.web.vo.BankVO;
+
 
 /**
  * Handles requests for the application home page.
@@ -156,13 +161,43 @@ public class HomeController {
 	//	System.out.println("HASH 512 : " + crt.CryptoSHA3("가나다라마바", 512));
 		return "template/a";
 	}
-	@RequestMapping("/b")
+	@RequestMapping("/block")
 	public String lecture() {
+		
+		
+		
+		Blockchain_original block=new Blockchain_original(1,null,0,new ArrayList());
+		block.mine();
+		block.getinfo(); 
+		Blockchain_original block2=new Blockchain_original(2,block.getBlockHash(),0,new ArrayList());
+		block2.addTransaction(new Transaction_original("staris","hama",1.5));
+		block2.addTransaction(new Transaction_original("시은","hama",0.7));
+		
+		block2.mine();
+		block2.getinfo();
+		Blockchain_original block3=new Blockchain_original(3,block2.getBlockHash(),0,new ArrayList());
+		block3.addTransaction(new Transaction_original("가경","시은",8.2));
+		block3.addTransaction(new Transaction_original("hama","staris",0.4));
+		
+		
+		block3.mine();
+		block3.getinfo();
+		Blockchain_original block4=new Blockchain_original(4,block3.getBlockHash(),0,new ArrayList());
+		block4.addTransaction(new Transaction_original("시은","staris",0.1));
+		
+		block4.mine();
+		block4.getinfo();
+		
+		
 		return "template/b";
 	}
-	@RequestMapping("/bc")
-	public void bc(){
+	@RequestMapping("/c")
+	public void c(){
 		
+		
+		
+
+		System.out.println(Util.getHash("stariseofjkdjo20dkcmoskjzo0201093klmcv0d9"));
 	} 
 	
 }
