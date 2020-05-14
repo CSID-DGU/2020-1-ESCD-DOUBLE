@@ -12,21 +12,25 @@ private String Bid;
 	private String Bmemo;
 	private String prehash;
 	private String thishash;
+	private int Bsequence;
+	String fname;
+	private int startrow;// 시작 행 번호
+	private int endrow; // 끝 행 번호
+	
 	public String getPrehash() {
 		return prehash;
 	}
 	public void setPrehash(String prehash) {
 		
-		this.prehash = Util.getHash(prehash);
+		this.prehash = prehash;
 	}
 	public String getThishash() {
 		return thishash;
 	}
 	public void setThishash(String thishash) {
-		this.thishash = Util.getHash(thishash);
+		this.thishash = thishash;
 	}
-	private int Bsequence;
-	String fname;
+
 	public String getFname() {
 		return fname;
 	}
@@ -34,8 +38,7 @@ private String Bid;
 		this.fname = fname;
 	}
 	//페이징 
-	private int startrow;// 시작 행 번호
-	private int endrow; // 끝 행 번호
+
 	public int getStartrow() {
 		return startrow;
 	}

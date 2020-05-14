@@ -38,6 +38,9 @@ select * from
 <select id="selectseqall" resultType="blist">
 	select * from blist where bsequence=#{bsequence}
 </select>
+<select id="thispre" resultType="blist">
+	select thishash, prehash from blist where bsequence=#{bsequence}
+</select>
 <select id="selectseq" resultType="int">
 	select max(Bsequence) from Blist
 	</select>

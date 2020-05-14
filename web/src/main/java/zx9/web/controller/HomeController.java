@@ -195,9 +195,6 @@ public class HomeController {
 	public void c(){
 		
 		
-		
-
-		System.out.println(Util.getHash("stariseofjkdjo20dkcmoskjzo0201093klmcv0d9"));
 	} 
 	
 }

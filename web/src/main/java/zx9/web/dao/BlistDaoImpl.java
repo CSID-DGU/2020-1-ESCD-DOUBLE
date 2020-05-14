@@ -39,7 +39,7 @@ public class BlistDaoImpl implements BlistDao {
 				//System.out.println(prehash);
 				System.out.println(newblvo.getPrehash());
 			}
-		blv.setPrehash(prehash);
+		blv.setPrehash(Util.getHash(prehash));
 		}
 		
 		
@@ -59,7 +59,7 @@ public class BlistDaoImpl implements BlistDao {
 		// System.out.println(thishash);
 		}
 	
-		blv.setThishash(thishash);
+		blv.setThishash(Util.getHash(thishash));
 		
 		System.out.println(blv.getThishash());
 		

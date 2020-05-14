@@ -5,7 +5,43 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2020-05-13T14:43:56Z</updated>
+  <updated>2020-05-14T13:05:40Z</updated>
+  <entry>
+    <title>Spring Session Dragonfruit-RELEASE Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2020/05/14/spring-session-dragonfruit-release-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Eleftheria Stein-Kousathana</name>
+    </author>
+    <id>tag:spring.io,2020-05-14:4071</id>
+    <updated>2020-05-14T13:05:40Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;On behalf of the community I¡¯m pleased to announce the release of Spring Session &lt;code&gt;Dragonfruit-RELEASE&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;The &lt;code&gt;Dragonfruit-RELEASE&lt;/code&gt; release is based on:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Session core modules &lt;code&gt;2.3.0.RELEASE&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Session Data Geode &lt;code&gt;2.3.0.RELEASE&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Spring Session Data MongoDB &lt;code&gt;2.3.0.RELEASE&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;Additional details of these releases can be found in the &lt;a href="https://github.com/spring-projects/spring-session/releases/tag/2.3.0.RELEASE"&gt;release notes&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://projects.spring.io/spring-session/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://docs.spring.io/spring-session/docs/2.3.0.RELEASE/reference/html5/"&gt;Documentation&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-session/issues"&gt;Issues&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-session"&gt;Gitter&lt;/a&gt; | &lt;a href="https://stackoverflow.com/questions/tagged/spring-session"&gt;Stack Overflow&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
+  </entry>
   <entry>
     <title>Introduction to Azure Spring Cloud with IntelliJ IDEA</title>
     <link rel="alternate" href="https://spring.io/blog/2020/05/13/introduction-to-azure-spring-cloud-with-intellij-idea" />
@@ -1046,19 +1082,6 @@ $ ls -l target/*.zip&#xD;
 &lt;p&gt;For a complete list of changes and upgrade instructions, please see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3.0-RC1-Release-Notes"&gt;Spring Boot 2.3 Release Notes&lt;/a&gt; on the wiki and the &lt;a href="http://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html/"&gt;updated reference documentation&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Barring any unforeseen circumstances, our current plan is to release 2.3.0 GA on May 14, so please give the RC a try if you can. To bootstrap a new project, you can head over to &lt;a href="https://start.spring.io"&gt;https://start.spring.io&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/2.3.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-boot"&gt;Stack Overflow&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;Gitter&lt;/a&gt;&lt;/p&gt;
-&lt;!-- rendered by Sagan Renderer Service --&gt;</content>
-  </entry>
-  <entry>
-    <title>Adrian Cole, founder or co-founder of Feign, JClouds, and Spring Cloud Sleuth and major contributor to OpenZipkin</title>
-    <link rel="alternate" href="https://spring.io/blog/2020/05/01/adrian-cole-founder-or-co-founder-of-feign-jclouds-and-spring-cloud-sleuth-and-major-contributor-to-openzipkin" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2020-05-01:4050</id>
-    <updated>2020-05-01T03:36:37Z</updated>
-    <content type="html">&lt;p&gt;Hi, Spring fans! In this installment &lt;a href="http://twitter.com/starbuxman"&gt;Josh Long (@starbuxman)&lt;/a&gt; talks to the founder of - among other things - Feign, JCloud, and Spring Cloud Sleuth - &lt;a href="https://twitter.com/adrianfcole"&gt;Adrian Cole (@adrianfcole)&lt;/a&gt; about distributed tracing, Zipkin, and more. &lt;/p&gt;
-&lt;iframe title="Adrian Cole, founder or co-founder of Feign, JClouds, and Spring Cloud Sleuth and major contributor to OpenZipkin" src="https://www.podbean.com/media/player/ser7i-db042c?from=usersite&amp;vjs=1&amp;skin=1&amp;fonts=Helvetica&amp;auto=0&amp;download=1" height="315" width="100%" style="border: none;" scrolling="no" data-name="pb-iframe-player"&gt;&lt;/iframe&gt;
 &lt;!-- rendered by Sagan Renderer Service --&gt;</content>
   </entry>
 </feed>

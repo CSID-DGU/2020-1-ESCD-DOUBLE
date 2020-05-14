@@ -1,3 +1,11 @@
+
+
+select * from blist order by bsequence desc;
+
+select * from blist where thishash='b5b808acce1634b241dcda1c5ee7cbe7a6bdb6ad857edd41208ee5baff2520b0';
+
+update blist set thishash='2' where brest=595643;
+
 select * from users;
 create table users (
 Sid varchar2(20) primary key, 
@@ -23,8 +31,6 @@ alter table blist add prehash varchar2(100);
 alter table blist add thishash varchar2(100);
 
 
-
-select * from blist order by bsequence desc;
 
 
 
