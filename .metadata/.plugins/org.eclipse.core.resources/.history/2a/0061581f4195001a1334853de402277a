@@ -35,7 +35,7 @@ public class BlistDaoImpl implements BlistDao {
 		System.out.println("pre :!!!"+newblvo.getBmemo()+","+newblvo.getBuser()+","+a.toString()+","+b.toString());
 		System.out.println("pre : "+prehash);
 		if(newblvo.getPrehash()!=null) {
-				prehash+=newblvo.getPrehash();
+				prehash+=newblvo.getThishash();
 				//System.out.println(prehash);
 				System.out.println(newblvo.getPrehash());
 			}
