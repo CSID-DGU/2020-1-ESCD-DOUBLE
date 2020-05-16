@@ -1,25 +1,8 @@
 INDEX VERSION 1.4+C:\Users\bohee\source\dospace_web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1243057733.index
-524012172.index
-3227559407.index
-3296329791.index
-<<<<<<< HEAD
-3097925378.index
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-2903629712.index
->>>>>>> 0af69ab1acb22f22b3603e330ff7b72459208e3d
-=======
->>>>>>> 41bb326fb13097cd4731dad2bfa4b752f0473794
-=======
-2903629712.index
->>>>>>> b8a8f40981a2ff9d4a8c55897e99178b1695f3cb
-=======
->>>>>>> d1718629367b1e37a71ed9c9667c614ac5dae4ef
->>>>>>> master
 2487545169.index
+1243057733.index
 2889914314.index
+3097925378.index
+524012172.index
+3296329791.index
+3227559407.index

@@ -1,7 +1,0 @@
-package zx9.web.dao;
-
-public interface BankDao {
-
-	void BankDaoImpl();
-
-}

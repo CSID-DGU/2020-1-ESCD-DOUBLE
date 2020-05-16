@@ -1,27 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.security.Provider"/>
-<fullyQualifiedTypeName name="java.security.Security"/>
-<fullyQualifiedTypeName name="org.jasypt.encryption.pbe.PooledPBEStringEncryptor"/>
-<fullyQualifiedTypeName name="zx9.web.dao.UserDao"/>
-<fullyQualifiedTypeName name="zx9.web.vo.UserVO"/>
-<fullyQualifiedTypeName name="zx9.web.dao.BankDao"/>
-<fullyQualifiedTypeName name="org.springframework.ui.Model"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
-<fullyQualifiedTypeName name="zx9.web.vo.BlmsgVO"/>
-<<<<<<< HEAD
-<fullyQualifiedTypeName name="zx9.web.dao.BlmsgDao"/>
-=======
-<fullyQualifiedTypeName name="java.security.InvalidKeyException"/>
-<fullyQualifiedTypeName name="javax.crypto.KeyGenerator"/>
-<fullyQualifiedTypeName name="org.bouncycastle.jcajce.provider.digest.Keccak.DigestKeccak"/>
-<<<<<<< HEAD
->>>>>>> b8a8f40981a2ff9d4a8c55897e99178b1695f3cb
-=======
-<fullyQualifiedTypeName name="org.apache.ibatis.javassist.bytecode.analysis.ControlFlow.Block"/>
-<fullyQualifiedTypeName name="pwchange.Blockchain"/>
-<fullyQualifiedTypeName name="pwchange.Transaction"/>
-<fullyQualifiedTypeName name="chain.Util"/>
->>>>>>> d1718629367b1e37a71ed9c9667c614ac5dae4ef
-</qualifiedTypeNameHistroy>
+<qualifiedTypeNameHistroy/>

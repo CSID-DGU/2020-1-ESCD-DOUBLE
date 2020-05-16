@@ -1,5 +1,0 @@
-package zx9.web.dao;
-
-public class BlistDaoImpl implements BlistDao {
-
-}
