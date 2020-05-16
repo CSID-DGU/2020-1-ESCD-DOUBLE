@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.BlistDao;
 import zx9.web.dao.BlmsgDao;
@@ -32,6 +33,9 @@ public class RegisterController {
 	@Autowired
 	BankDao bdao;
 	
+	
+	bouncy_change crt = new bouncy_change();
+	
 	@RequestMapping("/register")
 	public String register() {
 
@@ -41,6 +45,8 @@ public class RegisterController {
 	public String register_ok(UserVO a) {
 
 		System.out.println(a.toString());
+
+		a.setSpw(crt.CryptoSHA3(a.getSpw(), 224));
 		udao.register(a);
 		return "/register/register_ok";
 	}
@@ -56,6 +62,9 @@ public class RegisterController {
 	@RequestMapping("/login_ok")
 	public String login_ok(UserVO a,Model m,HttpServletRequest request) {
 		HttpSession session=request.getSession();
+
+		
+		a.setSpw(crt.CryptoSHA3(a.getSpw(), 224));
 		boolean isLoginOk=udao.login(a);
 		String msg;
 		if(isLoginOk) {

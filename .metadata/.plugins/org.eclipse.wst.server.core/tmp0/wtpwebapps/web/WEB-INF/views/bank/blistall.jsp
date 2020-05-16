@@ -53,6 +53,7 @@ vertical-align:-0.4em;
 			<h3 class="panel-title">
 				<span class="glyphicon glyphicon-tags"></span>
 				&nbsp;&nbsp;학생 회비 내역
+				
 			</h3>
 		</div>
 	
@@ -113,8 +114,9 @@ vertical-align:-0.4em;
    		</th>
    </tr></center>
 		</table>
-			<div class="panel-footer">
-					<blockquote>반갑네</blockquote>
+			<div class="panel-footer"><form action="blockchain" method="post">
+					<blockquote><input type="submit" value="무결성 검사" name="verify"></blockquote>
+					</form>
 			</div>
 		
 		</div></div>

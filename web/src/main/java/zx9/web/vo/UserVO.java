@@ -29,8 +29,8 @@ public class UserVO {
 		return Spw;
 	}
 	public void setSpw(String spw) {
-		Spw = crt.CryptoSHA3(spw, 224);
-		//Spw = spw;
+		//Spw = crt.CryptoSHA3(spw, 224);
+		Spw = spw;
 	}
 	public String getSnum() {
 		return Snum;

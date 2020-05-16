@@ -41,6 +41,14 @@ public class BankController {
 	BlmsgDao blmdao;
 
 	//bouncy_change crt = new bouncy_change();
+	@RequestMapping("blockchain")
+	String verify() {
+		bldao.blockchain();
+		return "/bank/verify";
+	}
+	
+	
+	
 	@RequestMapping("/purchase")
 	String purchase() {
 		return "/bank/purchase";
