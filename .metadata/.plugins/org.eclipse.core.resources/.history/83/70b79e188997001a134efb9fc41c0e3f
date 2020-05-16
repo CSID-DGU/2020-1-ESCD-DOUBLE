@@ -10,7 +10,7 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 	update Bank set Brest=#{Brest} where Bid=#{Bid}
 </update>
 <select id="blockchain">
-	select * from blist order by bsequence desc;
+	select Bsequence , prehash, thishash,rownum from blist order by bsequence desc;
 </select>
 
 </mapper>

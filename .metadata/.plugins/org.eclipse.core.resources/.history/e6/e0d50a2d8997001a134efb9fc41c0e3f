@@ -20,7 +20,7 @@ public class BlistDaoImpl implements BlistDao {
 	
 	@Override
 	public void blockchain() {
-		List<BlistVO>bl=sqlSession.selectList("blockchain");
+		sqlSession.selectList("blockchain");
 		
 		
 		

@@ -19,8 +19,6 @@ public interface BlistDao {
 
 	List<String> selectallfile();
 
-	void blockchain();
-
 		
 		
 	

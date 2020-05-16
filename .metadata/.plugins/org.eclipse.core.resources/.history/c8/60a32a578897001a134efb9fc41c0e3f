@@ -17,15 +17,6 @@ public class BlistDaoImpl implements BlistDao {
 	private SqlSession sqlSession;// 자동 의존성 주입 => mybatis쿼리문 수행객체
 
 	
-	
-	@Override
-	public void blockchain() {
-		List<BlistVO>bl=sqlSession.selectList("blockchain");
-		
-		
-		
-		
-	}
 
 	@Override
 	public void update_rest(BlistVO blv, BankVO bv) {
@@ -122,6 +113,10 @@ public class BlistDaoImpl implements BlistDao {
 
 
 
-	
+	@Override
+	public void blockchain() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
