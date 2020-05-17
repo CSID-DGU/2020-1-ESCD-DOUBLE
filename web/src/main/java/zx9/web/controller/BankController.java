@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import chain.Util;
 import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.BlistDao;
@@ -42,12 +43,40 @@ public class BankController {
 
 	//bouncy_change crt = new bouncy_change();
 	@RequestMapping("blockchain")
-	String verify() {
-		bldao.blockchain();
+	String verify(Model m) {
+		List<List<BlistVO>> a=bldao.blockchain();
+		List<BlistVO>blv1=a.get(0);
+		List<BlistVO>blv2=a.get(1);
+		System.out.println(blv1.size());
+		System.out.println(blv2.size());
+		System.out.println("1:");
+		for(int i=0;i<blv1.size();i++) {
+			blv1.get(i).print();
+			
+		}
+		System.out.println("2:");
+		for(int i=0;i<blv2.size();i++) {
+			blv2.get(i).print();
+		}
+		m.addAttribute("blv1",blv1);
+		m.addAttribute("blv2",blv2);
+		
+		
+		
 		return "/bank/verify";
 	}
 	
-	
+	@RequestMapping("/c")
+	public void c(){
+		// 해쉬값도 바꿔서 칼럼에는 문제 없게 바꾸기
+		BlistVO bl=bldao.selseq(137);
+		Integer a=bl.getBinout();
+		Integer b=bl.getBrest();
+		String thishash=bl.getBmemo()+bl.getBuser()+a.toString()+b.toString()+bl.getPrehash();
+		thishash=Util.getHash(thishash);
+		System.out.println(thishash);
+		
+	}
 	
 	@RequestMapping("/purchase")
 	String purchase() {

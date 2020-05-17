@@ -191,10 +191,5 @@ public class HomeController {
 		
 		return "template/b";
 	}
-	@RequestMapping("/c")
-	public void c(){
-		
-		
-	} 
-	
+
 }

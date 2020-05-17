@@ -17,6 +17,9 @@ private String Bid;
 	private int startrow;// 시작 행 번호
 	private int endrow; // 끝 행 번호
 	
+	public void print() {
+		System.out.println(Bid+" , "+Bdate+" , "+Brest+" , "+Binout+" , "+Buser+" , "+Bmemo+" , "+prehash+" , "+thishash+" , "+Bsequence);
+	}
 	public String getPrehash() {
 		return prehash;
 	}

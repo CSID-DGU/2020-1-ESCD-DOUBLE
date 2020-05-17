@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bank">
+<select id="select_bank" resultType="bank">
+	select * from bank where Bname=#{Smajor}
+</select>
+<update id="update_Brest">
+	update Bank set Brest=#{Brest} where Bid=#{Bid}
+</update>
+<select id="blockchain">
+	select * from blist order by bsequence desc;
+</select>
+
+</mapper>

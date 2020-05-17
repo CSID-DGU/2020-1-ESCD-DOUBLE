@@ -19,7 +19,11 @@ public interface BlistDao {
 
 	List<String> selectallfile();
 
-	void blockchain();
+	List<List<BlistVO>> blockchain();
+
+	
+
+	BlistVO selseq(int a);
 
 		
 		

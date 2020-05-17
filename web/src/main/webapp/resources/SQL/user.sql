@@ -1,8 +1,22 @@
 
+select * from users;
 
 select * from blist order by bsequence desc;
-
+update blist set bmemo ='hacking message' where bsequence=136;
 select * from blist where thishash='b5b808acce1634b241dcda1c5ee7cbe7a6bdb6ad857edd41208ee5baff2520b0';
+select * from blist order by bsequence desc;
+
+select * from bank;
+select Bsequence , prehash, thishash,rownum from blist order by bsequence desc;
+select * from blist order by bsequence desc;
+
+
+insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash) values('admin',sysdate
+	,1000000,0,'admin','admin',Bseq.nextval,1,1)
+
+update bank set brest=950000;
+delete from BLIST where brest=850000;
+delete from blist_per;
 
 update blist set thishash='2' where brest=595643;
 
