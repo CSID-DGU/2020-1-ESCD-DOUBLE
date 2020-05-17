@@ -52,7 +52,7 @@ vertical-align:-0.4em;
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				<span class="glyphicon glyphicon-tags"></span>
-				&nbsp;&nbsp;학생 회비 내역 - 현 칼럼에서 해쉬 값을 다시 계산 했을 때 안 맞는 경우
+				&nbsp;&nbsp;학생 회비 내역
 				
 			</h3>
 		</div>
@@ -89,20 +89,15 @@ vertical-align:-0.4em;
 		</table>
 		
 		
-		<br><br><br><br><br>
-			<div class="panel-heading">
-			<h3 class="panel-title">
-				<span class="glyphicon glyphicon-tags"></span>
-				&nbsp;&nbsp;학생 회비 내역 - 현 칼럼의 prehash 값과 전 칼럼의 thishash값이 안 맞는 경우
-				
-			</h3>
-		</div>
+		
+		
 		
 		
 			
 		<table class="table">
 			<thead>
 			  <tr>
+  				<td colspan="5" align="right"> 총 내역 목록 : <b>${totalCount }</b>개
   			</tr>
 			<tr>
 			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>파일</th>
