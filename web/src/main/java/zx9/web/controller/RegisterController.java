@@ -43,7 +43,10 @@ public class RegisterController {
 	}
 	@RequestMapping("/register_ok")//�쉶�썝 媛��엯 -> �븫�샇�솕 ?��꾨쾲�씠 �뱾�뼱媛�寃뚮�?
 	public String register_ok(UserVO a) {
-
+		System.out.println("?");
+		if(a.getSid()==null||a.getSname()==null||a.getSpw()==null|a.getSmajor()==null||a.getSnum()==null)
+			return "/index";
+					
 		System.out.println(a.toString());
 
 		a.setSpw(crt.CryptoSHA3(a.getSpw(), 224));

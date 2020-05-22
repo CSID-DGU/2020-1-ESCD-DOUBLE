@@ -82,6 +82,48 @@ public class BankController {
 	String purchase() {
 		return "/bank/purchase";
 	}
+	
+	@RequestMapping("/upload_ok")
+	String upload_ok(BlistVO blv,BankVO bv,HttpServletRequest request,Model m,
+			RedirectAttributes rttr, @RequestParam("imgFile") MultipartFile imgFile , Model model ) {
+		HttpSession session=request.getSession();
+if(!imgFile.isEmpty()) {
+	BankVO newbv=bdao.select_bank(session.getAttribute("Smajor").toString());
+	blv.setBid(newbv.getBid());
+			System.out.println("냐옹");
+			String savePath="C:\\Users\\bohee\\source\\dospace_web\\web\\src\\main\\webapp\\resources\\fileupdown";
+			System.out.println("uploadFile");
+			
+			String originalFilename = imgFile.getOriginalFilename(); // fileName.jpg
+		    String onlyFileName = originalFilename.substring(0, originalFilename.indexOf(".")); // fileName
+		    String extension = originalFilename.substring(originalFilename.indexOf(".")); // .jpg
+		 
+		    String rename = onlyFileName + extension; // fileName_20150721-14-07-50.jpg
+		    String fullPath = savePath + "\\" + rename;
+		   
+		        try {
+		            byte[] bytes = imgFile.getBytes();
+		            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+		            stream.write(bytes);
+		            stream.close();
+		          //  bldao.fileio(rename);
+		            blv.setFname(rename);
+		            bldao.fileio(blv);
+		            
+		            model.addAttribute("resultMsg", "파일을 업로드 성공!");
+		            System.out.println("업로드 성공");
+		        } catch (Exception e) {
+		            model.addAttribute("resultMsg", "파일을 업로드하는 데에 실패했습니다.");
+		            System.out.println("업로드 실패");
+		        }
+		} else {
+	        model.addAttribute("resultMsg", "업로드할 파일을 선택해주시기 바랍니다.");
+	    }
+		
+		return "redirect:/blistall";
+		
+		
+	}
 	@RequestMapping("/purchase_ok")
 	String purchase_ok(BlistVO blv,BankVO bv,HttpServletRequest request,Model m,
 			RedirectAttributes rttr, @RequestParam("imgFile") MultipartFile imgFile , Model model){

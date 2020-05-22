@@ -68,22 +68,30 @@ vertical-align:-0.4em;
 			</thead>
 			<tbody>
 	  <c:if test="${!empty bl }">
+	  
    <c:forEach var= "list" items="${bl }">
+   <form name="uploadForm" method="post" action="upload_ok" enctype="multipart/form-data">
    <tr>
-    <th>${list.getBdate() }</th><input type="hidden" name="Bdate">
-    <th>${list.getBrest() }</th><input type="hidden" name="Brest">
-    <th>${list.getBuser() }</th><input type="hidden" name="Buser">
-    <th>${list.getBinout() }</th><input type="hidden" name="Binout">
-    <th>${list.getBmemo() }</th><input type="hidden" name="Bmemo">
-    <th><a href="/web/downloadFile?fname=${list.getFname() }  ">${list.getFname() }  </a><br>
+    <th>${list.getBdate() }</th><input type="hidden" value="${list.getBdate()}" name="Bdate"/>
+    <th>${list.getBrest() }</th><input type="hidden" value="${list.getBrest()}" name="Brest"/>
+    <th>${list.getBuser() }</th><input type="hidden" value="${list.getBuser()}" name="Buser"/>
+    <th>${list.getBinout() }</th><input type="hidden" value="${list.getBinout()}" name="Binout"/>
+    <th>${list.getBmemo() }</th><input type="hidden" value="${list.getBmemo()}" name="Bmemo"/>
+    <c:if test="${!empty list.getFname()||  }">
+    <th><a href="/web/downloadFile?fname=${list.getFname() }  ">${list.getFname() }  </a></th>  </c:if>
     
+    <c:if test="${empty list.getFname() }">
+    <th> 
+       <input type="file" name="imgFile"></th>
+    <th><input type="submit" value="업로드"></th>
+    </c:if>
 
-    </th>
-  </tr></c:forEach></c:if>
+  </tr>  </form>
+  </c:forEach>
+  </c:if>
   
     <c:if test="${empty bl }">
-  <tr>
-   <th colspan="5">게시판 목록이 없습니다!</th></tr></c:if>
+  <tr>   <th colspan="5">게시판 목록이 없습니다!</th></tr></c:if>
 			</tbody>
 	<center><tr>
    		<th colspan="5">
