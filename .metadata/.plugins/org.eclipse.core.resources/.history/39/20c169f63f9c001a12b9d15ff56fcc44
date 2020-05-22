@@ -63,7 +63,7 @@ vertical-align:-0.4em;
   				<td colspan="5" align="right"> 총 내역 목록 : <b>${totalCount }</b>개
   			</tr>
 			<tr>
-			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>증빙 파일</th><th>증빙 파일 업로드</th>
+			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>파일</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -77,15 +77,14 @@ vertical-align:-0.4em;
     <th>${list.getBuser() }</th><input type="hidden" value="${list.getBuser()}" name="Buser"/>
     <th>${list.getBinout() }</th><input type="hidden" value="${list.getBinout()}" name="Binout"/>
     <th>${list.getBmemo() }</th><input type="hidden" value="${list.getBmemo()}" name="Bmemo"/>
-    <c:if test="${!empty list.getFname()}">
+    <c:if test="${!empty list.getFname()||  }">
     <th><a href="/web/downloadFile?fname=${list.getFname() }  ">${list.getFname() }  </a></th>  </c:if>
     
-    <c:if test="${empty list.getFname() }">
-    <c:if test="${Siscouncil>'1' }">
+    <c:if test="${empty list.getFname()&&council12 }">
     <th> 
        <input type="file" name="imgFile"></th>
     <th><input type="submit" value="업로드"></th>
-    </c:if></c:if>
+    </c:if>
 
   </tr>  </form>
   </c:forEach>

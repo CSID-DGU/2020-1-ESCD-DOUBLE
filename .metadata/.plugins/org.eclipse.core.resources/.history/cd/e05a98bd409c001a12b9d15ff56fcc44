@@ -63,7 +63,7 @@ vertical-align:-0.4em;
   				<td colspan="5" align="right"> 총 내역 목록 : <b>${totalCount }</b>개
   			</tr>
 			<tr>
-			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>증빙 파일</th><th>증빙 파일 업로드</th>
+			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>파일</th><th>증빙파일</th>
 			</tr>
 			</thead>
 			<tbody>

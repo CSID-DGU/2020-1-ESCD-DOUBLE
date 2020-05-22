@@ -233,7 +233,6 @@ if(!imgFile.isEmpty()) {
 		System.out.println("end: "+endpage);
 		System.out.println("max : "+maxpage);
 		System.out.println("p : "+page);
-		m.addAttribute("Siscouncil", session.getAttribute("Siscouncil").toString());
 		m.addAttribute("totalCount",totalCount);
 		m.addAttribute("startpage",startpage);
 		m.addAttribute("endpage",endpage);
