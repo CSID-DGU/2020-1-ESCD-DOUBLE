@@ -1,7 +1,31 @@
 
 select * from users;
 
-select * from blist order by bsequence desc;
+select * from blist order by blusers ;
+select count(*) from blist where blusers='default';
+
+delete from blist;
+insert into blist (bid,bdate,brest,binout,buser,bmemo,bsequence,fname,prehash,thishash)
+select bid,bdate,brest,binout,buser,bmemo,bsequence,fname,prehash,thishash from blist;
+create table Blisttmp as select * from blist;
+
+select * from blisttmp order by bsequence desc;
+update blisttmp set blusers='staris';
+
+insert into blist select * from blisttmp;
+
+insert into blist 
+select *
+  from blist as of timestamp(systimestamp-interval '10' minute) order by bsequence desc;
+
+delete from blist where bsequence=146;
+
+select * from Blist where Binout=0;
+
+insert into Blist select * from Blist;
+
+alter table blist add blusers varchar2(20) default 'default';
+
 update blist set bmemo ='hacking2 message' where bsequence=137;
 update blist set thishash='9412abe1c0ec50bb1aa666530e00532fed00ff12912d72d791c68b1a37d501d2' where bsequence=137;
 

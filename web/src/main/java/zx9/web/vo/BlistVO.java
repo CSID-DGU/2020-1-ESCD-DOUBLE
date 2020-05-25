@@ -16,7 +16,14 @@ private String Bid;
 	String fname;
 	private int startrow;// 시작 행 번호
 	private int endrow; // 끝 행 번호
+	private String Blusers;
 	
+	public String getBlusers() {
+		return Blusers;
+	}
+	public void setBlusers(String blusers) {
+		Blusers = blusers;
+	}
 	public void print() {
 		System.out.println(Bid+" , "+Bdate+" , "+Brest+" , "+Binout+" , "+Buser+" , "+Bmemo+" , "+prehash+" , "+thishash+" , "+Bsequence);
 	}
