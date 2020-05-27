@@ -5,7 +5,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/bootstrap.css">
 <link rel="stylesheet" href="resources/css/customize.css">
 
 </head>
@@ -13,19 +12,7 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="resources/js/bootstrap.js"></script>
 
-<style type="text/css">
-#footul ,#footul2{	
-color:white;}
-#footul:hover ,#footul2:hover{
 
-background-color:black;
-
-
-}
-#footul:focus,#footul2:hover{
-background-color:black;}
-
-</style>
 
 <footer style="background-color: #000000;color:#ffffff">
 	<div class="container">

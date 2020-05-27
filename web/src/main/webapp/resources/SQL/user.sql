@@ -1,16 +1,27 @@
 
 select * from users;
 
+select * from blist  order by bsequence desc;
+
+
+
 select * from blist order by blusers ;
 select count(*) from blist where blusers='default';
 
 delete from blist;
+
+delete from blist where blusers='diff2'
+
 insert into blist (bid,bdate,brest,binout,buser,bmemo,bsequence,fname,prehash,thishash)
-select bid,bdate,brest,binout,buser,bmemo,bsequence,fname,prehash,thishash from blist;
+select bid,bdate,brest,binout,buser,bmemo,bsequence,fname,prehash,thishash from blist where blusers='diff';
+
+
 create table Blisttmp as select * from blist;
 
+update blist set blusers='diff2' where blusers='default'
+
 select * from blisttmp order by bsequence desc;
-update blisttmp set blusers='staris';
+update blisttmp set blusers='diff';
 
 insert into blist select * from blisttmp;
 

@@ -9,9 +9,15 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 <update id="update_Blrest">
-	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash) values(#{bid},sysdate
-	,#{Brest},#{Binout},#{Buser},#{Bmemo},Bseq.nextval,#{prehash},#{thishash})
+	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash,blusers) values(#{bid},sysdate
+	,#{Brest},#{Binout},#{Buser},#{Bmemo},Bseq.nextval,#{prehash},#{thishash},'diff')
 	</update>
+	<insert id="update_Blrest_diff">
+	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash) 
+		select Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash from blist 
+		where blusers='diff' and bid=#{bid} and Brest=#{Brest} and Binout=#{Binout} and Buser=#{Buser} and Bmemo=#{Bmemo} and prehash=#{prehash} and thishash=#{thishash}
+	
+	</insert>
 
 <select id="select_list" parameterType="blist" resultType="blist">
 select * from 
@@ -42,7 +48,7 @@ select * from
  	delete from Blist_per where Bid=#{Bid} and Binout=#{Binout} and Bmemo=#{Bmemo} and Buser=#{Buser}
 </delete>
 <select id="selectseqall" resultType="blist">
-	select * from blist where bsequence=#{bsequence}
+	select * from blist where bsequence=#{bsequence} and blusers='diff'
 </select>
 <select id="thispre" resultType="blist">
 	select thishash, prehash from blist where bsequence=#{bsequence}

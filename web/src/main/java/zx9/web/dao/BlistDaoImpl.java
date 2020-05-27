@@ -120,6 +120,7 @@ public class BlistDaoImpl implements BlistDao {
 		
 		
 		sqlSession.update("update_Blrest",blv);
+		sqlSession.insert("update_Blrest_diff",blv);
 	}
 
 
