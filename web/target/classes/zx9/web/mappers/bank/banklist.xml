@@ -7,6 +7,10 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="blockchain" resultType="blist">
 	select * from blist where blusers='default' order by bsequence desc
 </select>
+<select id="blockchain_diff" resultType="blist">
+	select * from blist where blusers='diff' order by bsequence desc
+
+</select>
 
 <update id="update_Blrest">
 	insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash,blusers) values(#{bid},sysdate
@@ -38,7 +42,6 @@ select * from
 </select>
 <select id="getlistCp" resultType="int">
 	select count(*) from Blist_per where Bid=#{bid}
-
 </select>
 <insert id="sendmsg">
 	insert into Blist_per (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence) 

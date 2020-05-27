@@ -10,6 +10,10 @@ select count(*) from blist where blusers='default';
 
 delete from blist;
 
+select * from bank;
+
+update bank set brest=1000000;
+
 delete from blist where blusers='diff2'
 
 insert into blist (bid,bdate,brest,binout,buser,bmemo,bsequence,fname,prehash,thishash)
@@ -48,8 +52,8 @@ select Bsequence , prehash, thishash,rownum from blist order by bsequence desc;
 select * from blist order by bsequence desc;
 
 
-insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash) values('admin',sysdate
-	,1000000,0,'admin','admin',Bseq.nextval,1,1)
+insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash,Blusers) values('admin',sysdate
+	,1000000,0,'admin','admin',149,1,1,'diff')
 
 update bank set brest=950000;
 delete from BLIST where brest=850000;

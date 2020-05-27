@@ -135,7 +135,7 @@ vertical-align:-0.4em;
 	</div>
 </div>
 
-<div class="footer">
+<div id="footer">
 <%@include file="../template/footer.jsp"%></div>
 </body>
 </html>

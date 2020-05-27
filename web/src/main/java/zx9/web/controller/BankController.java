@@ -47,6 +47,8 @@ public class BankController {
 		List<List<BlistVO>> a=bldao.blockchain();
 		List<BlistVO>blv1=a.get(0);
 		List<BlistVO>blv2=a.get(1);
+		List<BlistVO>blv3=a.get(2);
+		
 		System.out.println(blv1.size());
 		System.out.println(blv2.size());
 		System.out.println("1:");
@@ -60,7 +62,7 @@ public class BankController {
 		}
 		m.addAttribute("blv1",blv1);
 		m.addAttribute("blv2",blv2);
-		
+		m.addAttribute("blv3",blv3);
 		
 		
 		return "/bank/verify";

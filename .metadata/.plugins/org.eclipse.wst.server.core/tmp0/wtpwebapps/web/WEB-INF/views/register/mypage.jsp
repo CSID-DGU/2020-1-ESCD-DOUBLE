@@ -91,7 +91,7 @@ vertical-align:-0.4em;
 
   </th>
     <th><input type="password" name="Bpw"></th>
-    <th><input type="submit" value="½ÂÀÎ"></th><th><button onclick="location=''">±â°¢!!</button></th>
+    <th><input type="submit" value="½ÂÀÎ"></th>
   </tr>  </form></c:forEach>
 </c:if>
   

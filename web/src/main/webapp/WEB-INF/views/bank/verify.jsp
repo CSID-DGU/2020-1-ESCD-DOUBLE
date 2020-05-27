@@ -129,13 +129,54 @@ vertical-align:-0.4em;
 			</tbody>
 	
 		</table>
+		
+		
+			<br><br><br><br><br>
+			<div class="panel-heading">
+			<h3 class="panel-title">
+				<span class="glyphicon glyphicon-tags"></span>
+				&nbsp;&nbsp;학생 회비 내역 - 다른 기관의 블록체인과 지금의 블록체인의 비교
+				
+			</h3>
+		</div>
+		
+			
+		<table class="table">
+			<thead>
+			  <tr>
+  			</tr>
+			<tr>
+			<th>날짜</th>	<th>잔액</th>	<th>사용자</th>	<th>사용 금액</th><th>내역</th><th>파일</th>
+			</tr>
+			</thead>
+			<tbody>
+	  <c:if test="${!empty blv3 }">
+   <c:forEach var= "list" items="${blv3 }">
+   <tr>
+    <th>${list.getBdate() }</th><input type="hidden" name="Bdate">
+    <th>${list.getBrest() }</th><input type="hidden" name="Brest">
+    <th>${list.getBuser() }</th><input type="hidden" name="Buser">
+    <th>${list.getBinout() }</th><input type="hidden" name="Binout">
+    <th>${list.getBmemo() }</th><input type="hidden" name="Bmemo">
+    <th><a href="/web/downloadFile?fname=${list.getFname() }  ">${list.getFname() }  </a><br>
+    
+
+    </th>
+  </tr></c:forEach></c:if>
+  
+    <c:if test="${empty blv3 }">
+  <tr>
+   <th colspan="5">게시판 목록이 없습니다!</th></tr></c:if>
+			</tbody>
+	
+		</table>
 	
 		
 		</div></div>
 	</div>
 </div>
 
-<div class="footer">
+<div id="footer">
 <%@include file="../template/footer.jsp"%></div>
 </body>
 </html>

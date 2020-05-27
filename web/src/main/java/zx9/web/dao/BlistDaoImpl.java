@@ -23,6 +23,7 @@ public class BlistDaoImpl implements BlistDao {
 	@Override
 	public List<List<BlistVO>> blockchain() {
 		List<BlistVO>bl=sqlSession.selectList("blockchain");
+		List<BlistVO>bldiff=sqlSession.selectList("blockchain_diff");
 		int l=bl.size();
 		System.out.println("리스트 크기 :"+l);
 		Integer a;
@@ -32,6 +33,7 @@ public class BlistDaoImpl implements BlistDao {
 		//BlistVO blv = new BlistVO();
 		List<BlistVO>pbl1=new ArrayList<>();
 		List<BlistVO>pbl2=new ArrayList<>();
+		List<BlistVO>pbl3=new ArrayList<>();
 		List<List<BlistVO>>result=new ArrayList<>();
 		//해커가 순수하게 데이터만 바꾸고 해시는 변경하지 않은 경우
 		//1차적 검증 = thishash다시 계산해서 비교해 보기
@@ -64,10 +66,20 @@ public class BlistDaoImpl implements BlistDao {
 			
 		}
 		}
+		//3차 검증 다른 블록체인 들과 같은지를 보자
+		if(!(bl.get(i).getThishash().equals(bldiff.get(i).getThishash()))) {
+			pbl3.add(bl.get(i));
+		}
+		
+		
+		
+		
+		
 		}
 		
 		result.add(pbl1);
 		result.add(pbl2);
+		result.add(pbl3);
 		return result;
 		
 		
