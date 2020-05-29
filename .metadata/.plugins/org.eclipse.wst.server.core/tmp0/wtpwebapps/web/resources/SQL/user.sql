@@ -1,7 +1,7 @@
 
 select * from users;
 
-select * from blist  order by bsequence desc;
+select * from blist where blusers='default' order by bsequence desc;
 
 
 
