@@ -3,6 +3,14 @@ select * from users;
 
 select * from blist where blusers='default' order by bsequence desc;
 
+select * from users;
+update users set siscouncil=2 where snum=3333;
+delete from users;
+
+select * from bank;
+update bank set brest = 1000000;
+select * from blist;
+
 
 
 select * from blist order by blusers ;
@@ -76,14 +84,20 @@ select * from bank;
 create table bank(Bid varchar2(30), Bname varchar2(20),Bpw varchar2(100),Brest number(20));
 create table Blist(Bid varchar2(30),Bdate date,Brest number(20),Binout number(20),Buser varchar2(20));
 
+alter table blist add prehash varchar2(100);
+alter table blist add thishash varchar2(100);
+
+create table Blist_per(Bid varchar2(30),Bdate date,Brest number(20),Binout number(20),Buser varchar2(20));
+alter table Blist_per add (Bmemo varchar2(30), Bsequence number(4));
+alter table Blist_per add fname varchar2(20);
+
+
 create sequence Bseq_p
 start with 1
 increment by 1
 nocache;--임시메모리 사용 안함@!
 drop sequence Bseq;
 
-alter table blist add prehash varchar2(100);
-alter table blist add thishash varchar2(100);
 
 
 
@@ -100,11 +114,8 @@ update users set siscouncil=3 where sid='2015112120';
 update blist_per set fname='';
 select Bseq_p.nextval from dual;
 
-create table Blist_per(Bid varchar2(30),Bdate date,Brest number(20),Binout number(20),Buser varchar2(20));
-alter table Blist_per add (Bmemo varchar2(30), Bsequence number(4));
 
 select * from blist_per;
 
-alter table Blist_per add fname varchar2(20);
 update Blist_per set fname='';
 
