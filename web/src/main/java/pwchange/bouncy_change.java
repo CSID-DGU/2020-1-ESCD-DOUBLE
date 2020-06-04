@@ -20,7 +20,8 @@ public class bouncy_change {
 	        }
 	        byte[] digest = md.digest();
 
-	        return org.bouncycastle.util.encoders.Hex.toHexString(digest);// return 에서 bouncycastle쓴다는 것을 알 수 있음
+	        return org.bouncycastle.util.encoders.Hex.toHexString(digest);
+	        // return 에서 bouncycastle쓴다는 것을 알 수 있음
 	    }
 		
 }
