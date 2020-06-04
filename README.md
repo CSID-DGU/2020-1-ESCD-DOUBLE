@@ -3,7 +3,7 @@
 > Student fees management system
 
 ## 개발환경 
-> 이클립스, 스프링, 오라클
+> 이클립스 2020, 스프링, 오라클 5.7
 
 ## 실행방법 
 > 이클립스 설치 : URL
