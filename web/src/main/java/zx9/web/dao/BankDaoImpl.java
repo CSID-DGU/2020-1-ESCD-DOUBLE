@@ -32,5 +32,12 @@ public class BankDaoImpl implements BankDao {
 		
 	}
 
+	@Override
+	public void deposit(BankVO bv) {
+		// TODO Auto-generated method stub
+		sqlSession.update("deposit",bv);
+		
+	}
+
 
 }
