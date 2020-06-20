@@ -10,5 +10,11 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 <select id="selall" resultType="users">
 	select * from users where Sid=#{Sid}
 </select>
+<select id="GetallUser" resultType="users">
+	select * from users where Siscouncil &lt; 10
+</select>
 
+<update id="chmod">
+	update users set Siscouncil=#{Siscouncil} where Sid=#{Sid}
+</update>
 </mapper>

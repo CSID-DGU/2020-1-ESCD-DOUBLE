@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="JDBC"/>
+		<item key="selection" value="redirect"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="redirect"/>
+			<item value="update"/>
+			<item value="alter"/>
+			<item value="insert"/>
 			<item value="jdbc"/>
 			<item value="create"/>
 			<item value="foot"/>
@@ -16,11 +20,9 @@
 			<item value="default"/>
 			<item value="br"/>
 			<item value="tbl"/>
-			<item value="update"/>
 			<item value="getthis"/>
 			<item value="This"/>
 			<item value="multi"/>
-			<item value="로그인"/>
 		</list>
 		<list key="replacehistory">
 			<item value="blv"/>

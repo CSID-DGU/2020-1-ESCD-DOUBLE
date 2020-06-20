@@ -71,7 +71,7 @@ public class BankController {
 	@RequestMapping("/c")
 	public void c(){
 		// 해쉬값도 바꿔서 칼럼에는 문제 없게 바꾸기
-		BlistVO bl=bldao.selseq(137);
+		BlistVO bl=bldao.selseq(160);
 		Integer a=bl.getBinout();
 		Integer b=bl.getBrest();
 		String thishash=bl.getBmemo()+bl.getBuser()+a.toString()+b.toString()+bl.getPrehash();
@@ -79,6 +79,7 @@ public class BankController {
 		System.out.println(thishash);
 		
 	}
+	
 	
 	@RequestMapping("/purchase")
 	String purchase() {
@@ -126,9 +127,26 @@ if(!imgFile.isEmpty()) {
 		
 		
 	}
+	@RequestMapping("/fee")
+	String fee(BlistVO blv,BankVO bv,int money,HttpServletRequest request,Model m) {
+		HttpSession session=request.getSession();
+		bv=bdao.select_bank(session.getAttribute("Smajor").toString());
+		blv.setBid(bv.getBid());
+		blv.setBuser(session.getAttribute("Sname").toString());
+		bv.setBrest(bv.getBrest()+money);
+		blv.setBinout(money);
+		blv.setBmemo("spon/dues");
+		
+		bdao.update_rest(bv);
+		bldao.update_rest(blv,bv);
+		String msg="후원 및 회비 납부에 감사드립니다.";
+		m.addAttribute("msg", msg);
+		return "/bank/purchase_ok";
+	}
 	@RequestMapping("/purchase_ok")
 	String purchase_ok(BlistVO blv,BankVO bv,HttpServletRequest request,Model m,
 			RedirectAttributes rttr, @RequestParam("imgFile") MultipartFile imgFile , Model model){
+		
 		HttpSession session=request.getSession();
 		BankVO newbv=bdao.select_bank(session.getAttribute("Smajor").toString());
 		String msg;
@@ -142,6 +160,7 @@ if(!imgFile.isEmpty()) {
 			blv.setBuser(session.getAttribute("Sname").toString());
 			
 		}
+		
 			newbv.setBrest(newbv.getBrest()-blv.getBinout());
 		bdao.update_rest(newbv);
 		bldao.update_rest(blv,newbv);

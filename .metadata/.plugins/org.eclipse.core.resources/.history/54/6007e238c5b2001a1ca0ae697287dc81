@@ -1,0 +1,26 @@
+package zx9.web.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import zx9.web.dao.UserDao;
+import zx9.web.vo.UserVO;
+
+@Controller
+public class adminController {
+
+	@Autowired
+	UserDao udao;
+	
+@RequestMapping("userall")
+public String userall(Model m) {
+	
+	List<UserVO>ul=udao.GetallUser();
+	m.addAttribute("alluser", ul);
+	return admin_user;
+}
+}

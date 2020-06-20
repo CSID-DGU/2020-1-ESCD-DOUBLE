@@ -4,3 +4,25 @@
 
 5월 14, 2020 02:32:12.13 NEW SESSION
 5월 14, 2020 02:32:12.13 [21688:8792:0514/023212.132:ERROR:browser_switcher_service.cc(238)] XXX Init()
+
+6월 15, 2020 16:24:17.79 NEW SESSION
+6월 15, 2020 16:24:17.79 [15672:2116:0615/162417.788:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:24:17.79 [15672:2116:0615/162417.789:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:24:17.79 [15672:2116:0615/162417.789:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:24:17.79 [15672:2116:0615/162417.790:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:24:17.79 [15672:2116:0615/162417.790:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:24:17.79 [15672:2116:0615/162417.790:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:24:37.45 [15672:2116:0615/162437.452:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:24:37.45 [15672:2116:0615/162437.452:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:25:06.50 [15672:2116:0615/162506.499:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:25:06.50 [15672:2116:0615/162506.499:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:25:06.50 [15672:2116:0615/162506.500:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:25:06.50 [15672:2116:0615/162506.501:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:27:15.74 [15672:2116:0615/162715.744:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:27:15.74 [15672:2116:0615/162715.744:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+6월 15, 2020 16:28:51.31 [15672:2116:0615/162851.319:ERROR:CONSOLE(2117)] "Cannot find context with specified id", source: devtools://devtools/bundled/sdk/sdk.js (2117)
+6월 15, 2020 16:28:51.32 [15672:2116:0615/162851.319:ERROR:CONSOLE(216)] "Extension server error: Inspector protocol error: Cannot find context with specified id", source: devtools://devtools/bundled/extensions/extensions.js (216)
+
+6월 20, 2020 16:20:48.03 NEW SESSION
+6월 20, 2020 16:20:48.03 [15892:9732:0620/162048.033:ERROR:socket_stream.cc(218)] Closing stream with result -2
+6월 20, 2020 16:40:13.16 [15892:9732:0620/164013.167:ERROR:connection_factory_impl.cc(420)] Failed to connect to MCS endpoint with error -105

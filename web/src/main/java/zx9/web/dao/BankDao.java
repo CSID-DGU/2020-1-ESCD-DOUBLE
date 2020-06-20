@@ -11,6 +11,8 @@ public interface BankDao {
 
 	void update_rest(BankVO newbv);
 
+	void deposit(BankVO bv);
+
 
 
 

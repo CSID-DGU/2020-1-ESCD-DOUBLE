@@ -95,9 +95,10 @@ public class HomeController {
 	public @ResponseBody JSONObject andtest(String id,String pw) {
 		System.out.println("getpw");
 		System.out.println(id);System.out.println(pw);
-			 JSONObject jsonMain = new JSONObject(); // json 객체
+			 JSONObject jsonMain = new JSONObject(); // json 
 			 String pwd="Abdeok odielswo dj244 d";
 			 jsonMain.put("Bpw", pwd);
+			 jsonMain.put("Bid","hihello");
 			// System.out.println(pwd);		 
 			return jsonMain;
 	
@@ -106,10 +107,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
 		String formattedDate = dateFormat.format(date);
 		System.out.println("hello");
 		model.addAttribute("serverTime", formattedDate );
@@ -146,6 +145,7 @@ public class HomeController {
 		str :testString, encStr : Bh5jTX6TaXzDn5mXBwcbh2kKqEXEPWS6 decStr :testString
 		str :testString, encStr : rEMYziBW/rGyMTc3ppqmUw== decStr :testString
 		 * 
+		 *
 		 * */
 		
 		

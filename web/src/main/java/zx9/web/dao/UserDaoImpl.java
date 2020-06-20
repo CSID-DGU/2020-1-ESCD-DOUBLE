@@ -1,5 +1,7 @@
 package zx9.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -34,6 +36,19 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		a=sqlSession.selectOne("selall",a);
 		return a;
+	}
+
+	@Override
+	public List<UserVO> GetallUser() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("GetallUser");
+	}
+
+	@Override
+	public void chmod(UserVO u) {
+		// TODO Auto-generated method stub
+		sqlSession.update("chmod",u);
+		
 	}
 
 }

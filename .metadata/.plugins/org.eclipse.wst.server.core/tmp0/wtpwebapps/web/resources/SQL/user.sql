@@ -1,7 +1,16 @@
 
 select * from users;
+update users set siscouncil=10 where sgrade=10;
+select * from bank;
 
 select * from blist where blusers='default' order by bsequence desc;
+select * from blist order by bsequence desc;
+select * from blist order by bsequence desc;
+insert into Bank values('1234','mathmatics','387a8233c96e1fc0ad5e284353276177af2186e7afa85296f106336e376669f7',1000000)
+ 1234 mathmatics  955000
+update blist set bmemo='hacking 2' where bsequence=160 and blusers='default'
+update blist set thishash='52e31d0ee82d8581bbc931b9a1b040cb4df0dde92f5b8c8a5c738a9c12e5cc86' where bsequence=160 and blusers='default'
+
 
 select * from users;
 update users set siscouncil=2 where snum=3333;
@@ -60,8 +69,8 @@ select Bsequence , prehash, thishash,rownum from blist order by bsequence desc;
 select * from blist order by bsequence desc;
 
 
-insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash,Blusers) values('admin',sysdate
-	,1000000,0,'admin','admin',149,1,1,'diff')
+insert into Blist (Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,prehash,thishash,Blusers) values
+                ('admin',sysdate	,1000000,0,'admin','admin',149,1,1,'diff')
 
 update bank set brest=950000;
 delete from BLIST where brest=850000;

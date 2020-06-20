@@ -44,7 +44,14 @@ public class RegisterController {
 	@RequestMapping("/register_ok")
 	public String register_ok(UserVO a) {
 		//System.out.println("?");
-		if(a.getSid()==null||a.getSname()==null||a.getSpw()==null|a.getSmajor()==null||a.getSnum()==null)
+		System.out.println(a.getSid());
+		System.out.println(a.getSname());
+		System.out.println(a.getSpw());
+		System.out.println(a.getSmajor());
+		System.out.println(a.getSnum());
+		System.out.println(a.getSgrade());
+		
+		if(a.getSid()==null||a.getSname()==null||a.getSpw()==null||a.getSmajor()==null||a.getSnum()==null||a.getSgrade()==0)
 			{return "/index";}
 					
 		//System.out.println(a.toString());
