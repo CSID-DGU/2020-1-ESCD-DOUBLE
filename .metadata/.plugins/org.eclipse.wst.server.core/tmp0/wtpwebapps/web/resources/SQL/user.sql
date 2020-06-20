@@ -1,5 +1,6 @@
 
 select * from users;
+update users set siscouncil=10 where sgrade=10;
 select * from bank;
 
 select * from blist where blusers='default' order by bsequence desc;

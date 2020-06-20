@@ -1,0 +1,13 @@
+package zx9.web.controller;
+
+public class adminController {
+
+	
+	
+@RequestMapping("userall")
+public String userall() {
+	
+	
+	return "";
+}
+}
