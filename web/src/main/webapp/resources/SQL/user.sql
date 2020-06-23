@@ -1,4 +1,10 @@
 
+delete from users where sid='2015112120'
+update users set Sname='sungdoolim' where sid='2015112120'
+
+
+update users set Sname='suminnam' where sid='2015654321'
+
 select * from users;
 update users set siscouncil=10 where sgrade=10;
 select * from bank;

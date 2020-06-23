@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banklist">
+
+<select id="blockchain" resultType="Blist">
+	select * from Blist where blusers='default' order by Bsequence desc
+</select>
+<select id="blockchain_diff" resultType="Blist">
+	select * from Blist where blusers='diff' order by Bsequence desc
+
+</select>
+
+<update id="update_Blrest">
+	insert into Blist (Bid,Bdate,Brest,Binout,Buser,bmemo,prehash,thishash,blusers) values(#{bid},sysdate()
+	,#{Brest},#{Binout},#{Buser},#{bmemo},#{prehash},#{thishash},'diff')
+	</update>
+	<insert id="update_Blrest_diff">
+	insert into Blist (Bid,Bdate,Brest,Binout,Buser,bmemo,Bsequence,prehash,thishash) 
+		select Bid,Bdate,Brest,Binout,Buser,bmemo,Bsequence,prehash,thishash from Blist 
+		where blusers='diff' and bid=#{bid} and Brest=#{Brest} and Binout=#{Binout} and Buser=#{Buser} and bmemo=#{bmemo} and prehash=#{prehash} and thishash=#{thishash}
+	
+	</insert>
+	
+
+<select id="select_list" parameterType="Blist" resultType="Blist">
+
+	select Bid,Bdate,Brest,Binout,Buser,bmemo,fname
+	from (select * from Blist where Bid=#{Bid} and blusers='default' order by Bsequence desc) AS t
+
+</select>
+
+
+
+<select id="select_list_msg" parameterType="blmsg" resultType="blmsg">
+	select Bid,Bdate,Brest,Binout,Buser,bmemo
+	from (select * from Blist_per where Bid=#{Bid} order by Bsequence desc) as t
+</select>
+ 
+ 
+ 
+ 
+ 
+ <!-- 
+ <select id="select_list" parameterType="Blist" resultType="Blist">
+select * from 
+	(select rowNum rNum,Bid,Bdate,Brest,Binout,Buser,bmemo,fname
+	from (select * from Blist where Bid=#{Bid} and blusers='default' order by Bsequence desc))
+	where rNum &gt;=#{startrow} and rNum &lt;=#{endrow}
+</select>
+
+
+
+<select id="select_list_msg" parameterType="blmsg" resultType="blmsg">
+select * from 
+	(select rowNum rNum,Bid,Bdate,Brest,Binout,Buser,bmemo
+	from (select * from Blist_per where Bid=#{Bid} order by Bsequence desc))
+	where rNum &gt;=#{startrow} and rNum &lt;=#{endrow}
+
+</select> 
+ -->
+<select id="getlistC" resultType="int">
+	select count(*) from Blist where Bid=#{bid} and blusers='default'
+
+</select>
+<select id="getlistCp" resultType="int">
+	select count(*) from Blist_per where Bid=#{bid}
+</select>
+<insert id="sendmsg">
+	insert into Blist_per (Bid,Bdate,Brest,Binout,Buser,bmemo,Bsequence) 
+	values(#{Bid},sysdate(),#{Brest},#{Binout},#{Buser},#{bmemo})
+</insert>
+<delete id="delete_list_msg">
+ 	delete from Blist_per where Bid=#{Bid} and Binout=#{Binout} and bmemo=#{bmemo} and Buser=#{Buser}
+</delete>
+<select id="selectseqall" resultType="Blist">
+	select * from Blist where Bsequence=#{Bsequence} and blusers='diff'
+</select>
+<select id="thispre" resultType="Blist">
+	select thishash, prehash from Blist where Bsequence=#{Bsequence}
+</select>
+<select id="selectseq" resultType="int">	
+	select max(Bsequence) from Blist
+	</select>
+	<select id="selseq" resultType="Blist">
+	select * from Blist where Bsequence=#{a} and blusers='default'
+	</select>
+</mapper>

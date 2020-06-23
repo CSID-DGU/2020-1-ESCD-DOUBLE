@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="redirect"/>
+		<item key="selection" value="bmemo"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Bmemo"/>
+			<item value="Blusers"/>
+			<item value="bsequence"/>
+			<item value="Bseq_p.nextval"/>
+			<item value="Bseq"/>
+			<item value="sysdate"/>
+			<item value="blist"/>
 			<item value="redirect"/>
 			<item value="update"/>
 			<item value="alter"/>
@@ -16,15 +23,13 @@
 			<item value="create"/>
 			<item value="foot"/>
 			<item value=";"/>
-			<item value="blusers"/>
-			<item value="default"/>
-			<item value="br"/>
-			<item value="tbl"/>
-			<item value="getthis"/>
-			<item value="This"/>
-			<item value="multi"/>
 		</list>
 		<list key="replacehistory">
+			<item value="bmemo"/>
+			<item value="blusers"/>
+			<item value="Bsequence"/>
+			<item value="sysdate()"/>
+			<item value="Blist"/>
 			<item value="blv"/>
 		</list>
 	</section>

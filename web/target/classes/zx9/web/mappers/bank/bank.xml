@@ -7,7 +7,7 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from bank where Bname=#{Smajor}
 </select>
 <update id="update_Brest">
-	update Bank set Brest=#{Brest} where Bid=#{Bid}
+	update bank set Brest=#{Brest} where Bid=#{Bid}
 </update>
 
 
