@@ -57,7 +57,7 @@ public class BlistDaoImpl implements BlistDao {
 		// 해커가 특정 칼럼의 데이터와 해쉬를 변경하여 특정 칼럼에 대해서는 결함이 없는 경우
 		//2차 검증 = 지금pre==이전this인지
 		if(i<l-1) {
-			System.out.println("log"+i);
+			System.out.println("log"+i+1);
 			System.out.println(bl.size());
 			System.out.println(bl.get(i+1));
 		if(prehash.equals(bl.get(i+1).getThishash())) {
