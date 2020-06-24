@@ -2,7 +2,6 @@
 select * from users;
 update users set siscouncil=10 where sgrade=10;
 select * from bank;
-delete from users where sid='2015112120'
 
 select * from blist where blusers='default' order by bsequence desc;
 select * from blist order by bsequence desc;
