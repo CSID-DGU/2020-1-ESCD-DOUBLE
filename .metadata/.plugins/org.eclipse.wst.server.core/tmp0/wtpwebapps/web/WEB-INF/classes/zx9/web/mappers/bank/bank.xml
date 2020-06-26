@@ -9,6 +9,11 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 <update id="update_Brest">
 	update Bank set Brest=#{Brest} where Bid=#{Bid}
 </update>
-
+<select id ="GetallBank" resultType="bank">
+	select * from bank
+</select>
+<insert id="addbank" parameterType="bank">
+	insert into bank (bid,bname,brest) values(#{bid},#{bname},#{brest})
+</insert>
 
 </mapper>

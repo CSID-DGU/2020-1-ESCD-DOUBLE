@@ -39,5 +39,17 @@ public class BankDaoImpl implements BankDao {
 		
 	}
 
+	@Override
+	public List<BankVO> GetallBank() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("GetallBank");
+	}
+
+	@Override
+	public void addbank(BankVO bvo) {
+		sqlSession.insert("addbank",bvo);
+		
+	}
+
 
 }

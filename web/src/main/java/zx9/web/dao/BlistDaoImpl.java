@@ -21,9 +21,9 @@ public class BlistDaoImpl implements BlistDao {
 	
 	bouncy_change crt = new bouncy_change();
 	@Override
-	public List<List<BlistVO>> blockchain() {
-		List<BlistVO>bl=sqlSession.selectList("blockchain");
-		List<BlistVO>bldiff=sqlSession.selectList("blockchain_diff");
+	public List<List<BlistVO>> blockchain(String bid) {
+		List<BlistVO>bl=sqlSession.selectList("blockchain",bid);
+		List<BlistVO>bldiff=sqlSession.selectList("blockchain_diff",bid);
 		int l=bl.size();
 		System.out.println("리스트 크기 :"+l);
 		Integer a;

@@ -55,7 +55,7 @@ vertical-align:-0.4em;
 		<div class="panel-heading">
 			<h3 class="panel-title">
 				<span class="glyphicon glyphicon-tags"></span>
-				&nbsp;&nbsp;학생 회비 내역
+				&nbsp;&nbsp;전 회원 조회
 				
 			</h3>
 		</div>
@@ -90,16 +90,13 @@ vertical-align:-0.4em;
 			</tbody>
 	
 		</table>
-			<div class="panel-footer"><form action="blockchain" method="post">
-					<blockquote><input type="submit" value="무결성 검사" name="verify"></blockquote>
-					</form>
-			</div>
+		
 		
 		</div></div>
 	</div>
 </div>
 
-<div id="footer">
+<div class="footer">
 <%@include file="../template/footer.jsp"%></div>
 </body>
 </html>

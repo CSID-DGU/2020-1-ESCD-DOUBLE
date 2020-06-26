@@ -26,7 +26,10 @@
 			<a class="navbar-brand" href="index">Every dongguk</a>
 			
 			<c:if test="${Siscouncil==10}">
-			<a class="navbar-brand" href="userall">유저 권한 관리</a></c:if>
+			<a class="navbar-brand" href="userall">유저 권한 관리</a>
+			<a class="navbar-brand" href="bankall">단과별 학생회비 계좌 관리</a>
+			
+			</c:if>
 		</div>	
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"><!-- 네비 중간 대부분을 차지함 -->

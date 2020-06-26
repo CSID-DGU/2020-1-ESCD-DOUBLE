@@ -43,8 +43,11 @@ public class BankController {
 
 	//bouncy_change crt = new bouncy_change();
 	@RequestMapping("blockchain")
-	String verify(Model m) {
-		List<List<BlistVO>> a=bldao.blockchain();
+	String verify(Model m,HttpServletRequest request) {
+		HttpSession session=request.getSession();
+		//session.getAttribute("Smajor").toString()
+		BankVO bvo=bdao.select_bank(session.getAttribute("Smajor").toString());
+		List<List<BlistVO>> a=bldao.blockchain(bvo.getBid());
 		List<BlistVO>blv1=a.get(0);
 		List<BlistVO>blv2=a.get(1);
 		List<BlistVO>blv3=a.get(2);

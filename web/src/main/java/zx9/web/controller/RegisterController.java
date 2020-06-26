@@ -113,9 +113,12 @@ public class RegisterController {
 		m.addAttribute("Smajor", session.getAttribute("Smajor"));
 		m.addAttribute("Sname", session.getAttribute("Sname"));
 		m.addAttribute("Snum", session.getAttribute("Snum"));
-		if(Integer.parseInt(session.getAttribute("Siscouncil").toString())>1) {
+		if(Integer.parseInt(session.getAttribute("Siscouncil").toString())==10)
+		{
+			}
+		else if(Integer.parseInt(session.getAttribute("Siscouncil").toString())>1) {
 
-
+			
 			int page=1;// 현재 쪽 번호
 			int limit=10;//한 페이지에 보여지는 목록 개수
 			

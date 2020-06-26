@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import zx9.web.dao.BankDao;
 import zx9.web.dao.UserDao;
+import zx9.web.vo.BankVO;
 import zx9.web.vo.UserVO;
 
 @Controller
@@ -15,6 +17,8 @@ public class adminController {
 
 	@Autowired
 	UserDao udao;
+	@Autowired
+	BankDao bdao;
 	
 @RequestMapping("userall")
 public String userall(Model m) {
@@ -22,6 +26,28 @@ public String userall(Model m) {
 	List<UserVO>ul=udao.GetallUser();
 	m.addAttribute("alluser", ul);
 	return "/admin/admin_user";
+}
+@RequestMapping("addbank")
+public String addbank(BankVO bvo) {
+	bdao.addbank(bvo);
+	
+	//return "/admin/admin_bank";
+
+	return "redirect:/bankall";
+}
+@RequestMapping("bankall")
+public String bankall(Model m) {
+	
+	List<BankVO>bvo=bdao.GetallBank();
+	m.addAttribute("allbank", bvo);
+	return "/admin/admin_bank";
+
+}
+@RequestMapping("adminblist")
+public String adminblist(String bname) {
+	
+	
+	return "redirect:/blistall";
 }
 @RequestMapping("chmod")
 public String chmod(UserVO u,Model m) {

@@ -5,10 +5,10 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="banklist">
 
 <select id="blockchain" resultType="blist">
-	select * from blist where blusers='default' order by bsequence desc
+	select * from blist where blusers='default' and bid=#{bid} order by bsequence desc
 </select>
 <select id="blockchain_diff" resultType="blist">
-	select * from blist where blusers='diff' order by bsequence desc
+	select * from blist where blusers='diff' and bid=#{bid} order by bsequence desc
 
 </select>
 

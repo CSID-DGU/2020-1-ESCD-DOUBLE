@@ -13,6 +13,10 @@ public interface BankDao {
 
 	void deposit(BankVO bv);
 
+	List<BankVO> GetallBank();
+
+	void addbank(BankVO bvo);
+
 
 
 
