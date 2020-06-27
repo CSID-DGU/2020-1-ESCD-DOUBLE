@@ -13,7 +13,7 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from bank
 </select>
 <insert id="addbank" parameterType="bank">
-	insert into bank (bid,bname,brest) values(#{bid},#{bname},#{brest})
+	insert into bank (bid,bname,brest,bpw) values(#{bid},#{bname},#{brest},#{bpw})
 </insert>
 
 </mapper>

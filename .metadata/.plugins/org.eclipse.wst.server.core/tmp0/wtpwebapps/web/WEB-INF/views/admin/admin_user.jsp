@@ -79,7 +79,22 @@ vertical-align:-0.4em;
     <th>${list.getSnum() }<input type="hidden" name="Snum" value="${list.getSnum() }"></th>
     <th>${list.getSname() }<input type="hidden" name="Sname" value="${list.getSname() }"></th>
     <th>${list.getSmajor() }<input type="hidden" name="Smajor" value="${list.getSmajor() }"></th>
-    <th><input type="text" name="Siscouncil" placeholder="${list.getSiscouncil() }"><input type="submit"></th>
+    <th>
+    <c:if test="${list.getSiscouncil()==0 }">일반 학생</c:if>
+    <c:if test="${list.getSiscouncil()==1 }">학생회</c:if>
+    <c:if test="${list.getSiscouncil()==2 }">총무</c:if>
+    
+    </th>
+    <th>
+    
+   <!--  <input type="text" name="Siscouncil" placeholder="${list.getSiscouncil() }"> -->
+    <select name="Siscouncil">
+    	<option value="0" selected>일반 학생</option>
+    	<option value="1">학생회</option>
+    	<option value="2">총무</option>
+    </select>
+    
+    <input type="submit"></th>
   </tr> 
   </form>
   </c:forEach>

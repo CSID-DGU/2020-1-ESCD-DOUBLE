@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pwchange.bouncy_change;
 import zx9.web.dao.BankDao;
 import zx9.web.dao.UserDao;
 import zx9.web.vo.BankVO;
@@ -20,6 +21,8 @@ public class adminController {
 	@Autowired
 	BankDao bdao;
 	
+
+	bouncy_change crt = new bouncy_change();
 @RequestMapping("userall")
 public String userall(Model m) {
 	
@@ -29,6 +32,12 @@ public String userall(Model m) {
 }
 @RequestMapping("addbank")
 public String addbank(BankVO bvo) {
+	System.out.println(bvo.getBid());
+	System.out.println(bvo.getBname());
+	System.out.println(bvo.getBpw());
+
+	
+	
 	bdao.addbank(bvo);
 	
 	//return "/admin/admin_bank";

@@ -1,9 +1,11 @@
 
 select * from users;
+select * from users order by Smajor
 update users set siscouncil=10 where sgrade=10;
 select * from bank;
 delete from users where sid='2015112120'
 
+delete from bank where brest<100000
 select * from blist where blusers='default' order by bsequence desc;
 select * from blist order by bsequence desc;
 select * from blist order by bsequence desc;

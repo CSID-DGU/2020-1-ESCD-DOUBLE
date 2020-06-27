@@ -9,4 +9,6 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+<fullyQualifiedTypeName name="zx9.web.dao.BankDao"/>
+<fullyQualifiedTypeName name="zx9.web.vo.BankVO"/>
 </qualifiedTypeNameHistroy>

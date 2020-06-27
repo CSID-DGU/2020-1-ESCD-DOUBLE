@@ -153,7 +153,9 @@ if(!imgFile.isEmpty()) {
 		HttpSession session=request.getSession();
 		BankVO newbv=bdao.select_bank(session.getAttribute("Smajor").toString());
 		String msg;
-	
+		System.out.println("bpw : "+newbv.getBpw());
+		System.out.println("bpw = "+bv.getBpw());
+		
 		if(newbv.getBpw().equals(bv.getBpw())) {
 			blv.setBid(newbv.getBid());
 			
