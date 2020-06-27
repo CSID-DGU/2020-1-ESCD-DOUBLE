@@ -42,14 +42,16 @@ public class RegisterController {
 		return "/register";
 	}
 	@RequestMapping("/register_ok")
-	public String register_ok(UserVO a) {
+	public String register_ok(UserVO a,Model m) {
+		System.out.println("id"+a.getSid());
+		System.out.println("name"+a.getSname());
+		System.out.println("pw"+a.getSpw());
+		System.out.println("major"+a.getSmajor());
+		System.out.println("num"+a.getSnum());
+		System.out.println("grade"+a.getSgrade());
+		
+		try {
 		//System.out.println("?");
-		System.out.println(a.getSid());
-		System.out.println(a.getSname());
-		System.out.println(a.getSpw());
-		System.out.println(a.getSmajor());
-		System.out.println(a.getSnum());
-		System.out.println(a.getSgrade());
 		
 		if(a.getSid()==null||a.getSname()==null||a.getSpw()==null||a.getSmajor()==null||a.getSnum()==null||a.getSgrade()==0)
 			{return "/index";}
@@ -58,7 +60,14 @@ public class RegisterController {
 
 		a.setSpw(crt.CryptoSHA3(a.getSpw(), 224));
 		udao.register(a);
-		return "/register/register_ok";
+		return "/register/register_ok";}
+		catch(Exception e) {
+
+			String msg="공백은 불허 합니다";
+			m.addAttribute("msg",msg);
+			
+			return "/errorhandle";
+		}
 	}
 	@RequestMapping("/register_form")
 	public String register_form() {

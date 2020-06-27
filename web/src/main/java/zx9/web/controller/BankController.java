@@ -166,8 +166,14 @@ if(!imgFile.isEmpty()) {
 			blv.setBuser(session.getAttribute("Sname").toString());
 			
 		}
+		int rest=newbv.getBrest()-blv.getBinout();
+		if(rest<0) {
+			msg="금액이 부족합니다!";
+			System.out.println(msg);
+			m.addAttribute("msg", msg);
+			return "/errorhandle";}
 		
-			newbv.setBrest(newbv.getBrest()-blv.getBinout());
+			newbv.setBrest(rest);
 		bdao.update_rest(newbv);
 		bldao.update_rest(blv,newbv);
 if(!imgFile.isEmpty()) {

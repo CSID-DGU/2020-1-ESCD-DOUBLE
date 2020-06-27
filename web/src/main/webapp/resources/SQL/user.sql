@@ -1,16 +1,19 @@
 
 select * from bank;
 delete from bank where brest=0
-select * from blist where blusers='default' and bid='2345' order by bsequence desc;
+select * from blist where  bid='3456' order by bsequence desc;
+
 select * from users;
+delete from bank where bid='3456'
+delete from blist where bid='3456' 
 delete from users where sid='1234'
 select * from users order by Smajor
 update users set siscouncil=10 where sgrade=10;
 select * from bank;
 delete from users where sid='2015112120'
 
-update blist set thishash='a21fc40b9ff3ad2fae607d844f8e046dd2b9a79e6cde79f1acf7f6683eebc17e'
-where bid='1234' and bsequence=149
+update blist set thishash='e8b347a26403a6d044c77ff7f0bb4b9205ff798a27fdc0e4a4ffc76359ef64b6'
+where bid='3456' and bsequence=1
 
 select * from blist order by bsequence desc;
 update blist set bid='1234';
