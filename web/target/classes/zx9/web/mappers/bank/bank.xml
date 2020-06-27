@@ -15,5 +15,12 @@ PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
 <insert id="addbank" parameterType="bank">
 	insert into bank (bid,bname,brest,bpw) values(#{bid},#{bname},#{brest},#{bpw})
 </insert>
-
+<insert id="addbank_list" parameterType="bank">
+	insert into blist (Bid,Bdate,Brest,Binout,Bmemo,Bsequence,Blusers,Buser,prehash,thishash)
+				values(#{bid},sysdate,#{brest},0,'admin',1,'default','admin','1','1')
+</insert>
+<insert id="addbank_list2" parameterType="bank">
+	insert into blist (Bid,Bdate,Brest,Binout,Bmemo,Bsequence,Blusers,Buser,prehash,thishash)
+				values(#{bid},sysdate,#{brest},0,'admin',1,'diff','admin','1','1')
+</insert>
 </mapper>

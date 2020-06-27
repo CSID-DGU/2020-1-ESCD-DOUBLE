@@ -1,12 +1,31 @@
 
+select * from bank;
+delete from bank where brest=0
+select * from blist where blusers='default' and bid='2345' order by bsequence desc;
 select * from users;
+delete from users where sid='1234'
 select * from users order by Smajor
 update users set siscouncil=10 where sgrade=10;
 select * from bank;
 delete from users where sid='2015112120'
 
+update blist set thishash='a21fc40b9ff3ad2fae607d844f8e046dd2b9a79e6cde79f1acf7f6683eebc17e'
+where bid='1234' and bsequence=149
+
+select * from blist order by bsequence desc;
+update blist set bid='1234';
+delete from blist where bsequence =1
+
+delete from blist where bsequence != 149
+update blist set bmemo='hacking2' where bsequence=194 and blusers='default' and bid='1234'
+
+select * from blist where bsequence=194 and bid='1234' and blusers='default'
+update blist set thishash='9f4d26c82201c66897c05cb3b17de9baf759d523999e9d646d9c7b80d82b0552' where bsequence=194 and bid='1234' and blusers='default'
+
+delete from bank where bid='2345'
+
+delete from blist where bid='2345'
 delete from bank where brest<100000
-select * from blist where blusers='default' order by bsequence desc;
 select * from blist order by bsequence desc;
 select * from blist order by bsequence desc;
 insert into Bank values('1234','mathmatics','387a8233c96e1fc0ad5e284353276177af2186e7afa85296f106336e376669f7',1000000)

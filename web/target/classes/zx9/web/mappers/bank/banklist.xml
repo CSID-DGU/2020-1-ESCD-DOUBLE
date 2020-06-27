@@ -69,15 +69,15 @@ select * from
  	delete from Blist_per where Bid=#{Bid} and Binout=#{Binout} and Bmemo=#{Bmemo} and Buser=#{Buser}
 </delete>
 <select id="selectseqall" resultType="blist">
-	select * from blist where bsequence=#{bsequence} and blusers='diff'
+	select * from blist where bsequence=#{bsequence} and blusers='diff' and bid=#{bid}
 </select>
 <select id="thispre" resultType="blist">
 	select thishash, prehash from blist where bsequence=#{bsequence}
 </select>
 <select id="selectseq" resultType="int">
-	select max(Bsequence) from Blist
+	select max(Bsequence) from Blist where Bid=#{bid}
 	</select>
 	<select id="selseq" resultType="blist">
-	select * from blist where bsequence=#{a} and blusers='default'
+	select * from blist where bsequence=#{a} and bid='1234' and blusers='default'
 	</select>
 </mapper>

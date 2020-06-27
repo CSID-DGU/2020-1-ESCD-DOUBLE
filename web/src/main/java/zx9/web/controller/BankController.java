@@ -74,7 +74,8 @@ public class BankController {
 	@RequestMapping("/c")
 	public void c(){
 		// 해쉬값도 바꿔서 칼럼에는 문제 없게 바꾸기
-		BlistVO bl=bldao.selseq(160);
+		
+		BlistVO bl=bldao.selseq(194);
 		Integer a=bl.getBinout();
 		Integer b=bl.getBrest();
 		String thishash=bl.getBmemo()+bl.getBuser()+a.toString()+b.toString()+bl.getPrehash();

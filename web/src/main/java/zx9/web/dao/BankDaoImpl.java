@@ -51,5 +51,11 @@ public class BankDaoImpl implements BankDao {
 		
 	}
 
+	@Override
+	public void addbank_list(BankVO bvo) {
+		sqlSession.insert("addbank_list",bvo);
+		sqlSession.insert("addbank_list2",bvo);
+	}
+
 
 }

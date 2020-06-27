@@ -17,6 +17,8 @@ public interface BankDao {
 
 	void addbank(BankVO bvo);
 
+	void addbank_list(BankVO bvo);
+
 
 
 

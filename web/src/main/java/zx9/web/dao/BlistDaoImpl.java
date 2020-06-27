@@ -92,8 +92,9 @@ public class BlistDaoImpl implements BlistDao {
 		blv.setBid(bv.getBid());
 		//blv.setPrehash(prehash);
 		
-		int bsequence=sqlSession.selectOne("selectseq");
-		BlistVO newblvo=sqlSession.selectOne("selectseqall",bsequence);
+		int bsequence=sqlSession.selectOne("selectseq",blv);
+		blv.setBsequence(bsequence);
+		BlistVO newblvo=sqlSession.selectOne("selectseqall",blv);
 
 		if(newblvo!=null) {
 			Integer a=newblvo.getBinout();
@@ -131,7 +132,7 @@ public class BlistDaoImpl implements BlistDao {
 		System.out.println(blv.getThishash());
 		
 		
-		sqlSession.update("update_Blrest",blv);
+		sqlSession.update("update_Blrest",blv);//insert임
 		sqlSession.insert("update_Blrest_diff",blv);
 	}
 

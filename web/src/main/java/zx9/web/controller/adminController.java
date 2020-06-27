@@ -39,6 +39,7 @@ public String addbank(BankVO bvo) {
 	
 	
 	bdao.addbank(bvo);
+	bdao.addbank_list(bvo);
 	
 	//return "/admin/admin_bank";
 

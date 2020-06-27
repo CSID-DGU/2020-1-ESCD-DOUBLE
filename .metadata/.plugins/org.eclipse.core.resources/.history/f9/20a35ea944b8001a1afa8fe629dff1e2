@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC  "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bank">
+<select id="select_bank" resultType="bank">
+	select * from bank where Bname=#{Smajor}
+</select>
+<update id="update_Brest">
+	update Bank set Brest=#{Brest} where Bid=#{Bid}
+</update>
+<select id ="GetallBank" resultType="bank">
+	select * from bank
+</select>
+<insert id="addbank" parameterType="bank">
+	insert into bank (bid,bname,brest,bpw) values(#{bid},#{bname},#{brest},#{bpw})
+</insert>
+<insert id="addbank_list" parameterType="bank">
+	insert into Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,Blusers
+	values(#{bid},sysdate,#{brest},'first','admin','admin',1,'default')
+</insert>
+<insert id="addbank_list2" parameterType="bank">
+	insert into Bid,Bdate,Brest,Binout,Buser,Bmemo,Bsequence,Blusers
+	values(#{bid},sysdate,#{brest},'first','admin','admin',1,'diff')
+</insert>
+</mapper>
